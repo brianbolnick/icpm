@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 var app = express();
 var router = express.Router();
 
+// Add database configuration here
+
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
