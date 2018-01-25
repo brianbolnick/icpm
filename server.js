@@ -4,6 +4,9 @@ var express = require('express');
 const path = require('path');
 var bodyParser = require('body-parser');
 
+//Require data models here
+// example: var User = require('./model/users');
+
 var app = express();
 var router = express.Router();
 
