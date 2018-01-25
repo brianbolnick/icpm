@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 import HomePage from './HomePage.js'
+import DashboardPage from './DashboardPage.js'
+import TasksPage from './TasksPage.js'
+import ResourcesPage from './ResourcesPage.js'
 import NotFound from './NotFound.js'
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Route, withRouter, Switch } from "react-router-dom";
@@ -19,6 +22,9 @@ class App extends Component {
         >
           <Switch location={this.props.location}>
             <Route path="/" exact component={HomePage} />
+            <Route path="/dashboard" exact component={DashboardPage} />
+            <Route path="/tasks" exact component={TasksPage} />
+            <Route path="/resources" exact component={ResourcesPage} />
             <Route component={NotFound} />
           </Switch>
         </CSSTransition>

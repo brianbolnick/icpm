@@ -23,9 +23,33 @@ div#app {
   height: 100%;
 }
 
+.resources-layout {
+  background: linear-gradient(to right, rgb(17, 153, 142), rgb(56, 239, 125));
+  background-size: cover;
+  /* min-height: 101.8vh; */
+  background-position-y: -60px;
+  height: 100%;
+}
+
+.dashboard-layout {
+  background: linear-gradient(to right, rgb(6, 190, 182), rgb(72, 177, 191));
+  background-size: cover;
+  /* min-height: 101.8vh; */
+  background-position-y: -60px;
+  height: 100%;
+}
+
+.tasks-layout {
+  background: linear-gradient(to right, rgb(252, 92, 125), rgb(106, 130, 251));
+  background-size: cover;
+  /* min-height: 101.8vh; */
+  background-position-y: -60px;
+  height: 100%;
+}
+
 .ui.inverted.vertical.labeled.icon.ui.push.left.thin.visible.sidebar.menu {
-  /* background: #f5f5f57d; */
-  background: #f5f5f5;
+  background: #f5f5f57d;
+  /* background: #f5f5f5; */
   width: 60px;
 }
 
@@ -53,11 +77,17 @@ i.link.icon.sidebar-item {
   /* color: #212121; */
   padding: 30px 0;
   color: #616161;
+  font-size: 1.8rem;
 }
 
 i.link.icon.sidebar-item:hover {
   transition: transform 0.5s;
-  transform: scale(0.85);
+  transform: scale(0.9);
+  color: #616161;
+}
+
+i.link.icon:hover, i.link.icons:hover {
+  opacity: 0.8 !important;
 }
 
 a {
@@ -73,7 +103,7 @@ a:hover {
 .menu-nav {
   float: right;
   position: relative;
-  right: 60px;
+  right: 70px;
 }
 
 .menu-nav-item {

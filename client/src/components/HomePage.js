@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Logo from '../img/impl-logo.png'
 import 'react-tippy/dist/tippy.css';
 import { Tooltip } from 'react-tippy';
+import Layout from './Layout'
 import HomeContent from './HomeContent'
 
 class SidebarMenu extends Component {
@@ -67,18 +68,11 @@ class SidebarMenu extends Component {
 class HomePage extends Component {
   render() {
     return (
-      <div className="home-layout">
-        <div className="home-page" style={{ minHeight: '100%' }}>
-          <Sidebar.Pushable as={Segment} style={{ background: 'none' }}>
-            <SidebarMenu />
-            <Sidebar.Pusher>
-              <Segment basic>
-                <HomeContent />
-              </Segment>
-            </Sidebar.Pusher>
-          </Sidebar.Pushable>
-        </div>
-      </div>
+      <Layout bg="home-layout">
+          <div className="home-page" style={{ minHeight: '100%' }}>            
+              <HomeContent />
+          </div>       
+        </Layout>
     );
   }
 }
