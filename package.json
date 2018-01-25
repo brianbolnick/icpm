@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-express",
+  "name": "icpm",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.2",

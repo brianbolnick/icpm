@@ -1,11 +1,10 @@
 {
-  "name": "react-redux-express-client",
+  "name": "icpm-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
-    "foreman": "^2.0.0",
     "marked": "^0.3.12",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
@@ -14,10 +13,13 @@
     "react-router-redux": "^5.0.0-alpha.8",
     "react-router-transition": "^1.2.0",
     "react-scripts": "1.1.0",
+    "react-tippy": "^1.2.2",
     "react-transition-group": "^2.2.1",
     "redux": "^3.7.2",
     "redux-form": "^7.2.1",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.77.2"
   },
   "scripts": {
     "start": "react-scripts start",
