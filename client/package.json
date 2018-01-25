@@ -1,28 +1,11 @@
 {
-  "name": "icpm",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.17.1",
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "foreman": "^2.0.0",
-    "marked": "^0.3.12",
-    "mongoose": "^5.0.1",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
-    "react-redux": "^5.0.6",
-    "react-router-dom": "^4.2.2",
-    "react-router-redux": "^5.0.0-alpha.8",
-    "react-router-transition": "^1.2.0",
-    "react-scripts": "1.1.0",
-    "react-tippy": "^1.2.2",
-    "react-transition-group": "^2.2.1",
-    "redux": "^3.7.2",
-    "redux-form": "^7.2.1",
-    "redux-thunk": "^2.2.0",
-    "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.77.2"
+    "react-scripts": "1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,18 +13,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
-  "main": "server.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/brianbolnick/icpm-tool.git"
-  },
-  "author": "Brian Bolnick",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/brianbolnick/icpm-tool/issues"
-  },
-  "homepage": "https://github.com/brianbolnick/icpm-tool#readme",
   "proxy": "http://localhost:5000"
 }
