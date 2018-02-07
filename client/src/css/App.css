@@ -138,17 +138,6 @@ a.sidebar-link:hover {
   padding: 15px 0px;
 }
 
-.dashboard-card {
-  background: #fff;
-  padding: 5px;
-  width: 30%;
-  height: 350px;
-  margin-top: 30px;
-  line-height: 150px;
-  font-weight: bold;
-  text-align: center;
-}
-
 .main-container {
   display: flex;
   flex-flow: row wrap;
@@ -293,6 +282,169 @@ a:hover {
   color: #212121b3;
 }
 
+.dashboard-card {
+  background: #fff;
+  padding: 10px;
+  width: 30%;
+  height: 350px;
+  margin-top: 30px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 15px -4px #21212185;
+}
+
+.card-content {
+  height: 100%;
+}
+
+hr.card-divider {
+  width: 80%;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  border-color: #d7d7d747;
+  border-bottom: 0;
+  border-radius: 5px;
+}
+
+.card-heading {
+  padding: 10px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  color: #212121d9;
+  letter-spacing: 1px;
+  line-height: 35px;
+}
+
+.card-subtitle {
+  color: #545454;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.card-main {
+  padding: 10px;
+  height: 70%;
+}
+
+.csm-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-stats {
+  margin-top: 15px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  height: 85%;
+}
+
+.progress-bar {
+  width: 65%;
+  height: 25px;
+  /* border: solid 1px #2121213b; */
+  border-radius: 2px;
+}
+
+.progress-sis {
+  height: 100%;
+  background: linear-gradient(to right, rgb(243, 124, 103), rgb(193, 30, 14));
+  border-radius: 0 8px 8px 0;
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.9rem;
+  padding: 2px;
+}
+
+.progress-branding {
+  height: 100%;
+  background: linear-gradient(to left, rgb(128, 0, 128), rgb(255, 173, 187));
+  border-radius: 0 8px 8px 0;
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.9rem;
+  padding: 2px;
+}
+
+.progress-auth {
+  height: 100%;
+  background: linear-gradient(to right, rgb(54, 209, 220), rgb(91, 134, 229));
+  border-radius: 0 8px 8px 0;
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.9rem;
+  padding: 2px;
+}
+
+.progress-migration {
+  height: 100%;
+  background: linear-gradient(to left, rgb(17, 153, 142), rgb(56, 239, 125));
+  border-radius: 0 8px 8px 0;
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.9rem;
+  padding: 2px;
+}
+
+.progress-other {
+  height: 100%;
+  background: linear-gradient(to right, rgb(255, 226, 89), rgb(255, 167, 81));
+  border-radius: 0 8px 8px 0;
+  text-align: center;
+  color: #ffffff;
+  font-size: 0.9rem;
+  padding: 2px;
+}
+
+.card-sis {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.card-branding {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.card-auth {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.card-migration {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.card-other {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+span.card-task-title {
+  letter-spacing: 1px;
+}
+
+.csm-info span {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.date-info span {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
 /* Responsive Branding */
 
 /* Mobile */
@@ -306,7 +458,7 @@ a:hover {
     text-align: -moz-center;
   }
   .dashboard-card {
-    width: 80%;
+    width: 90%;
   }
   .sidebar-link-text {
     display: none;
@@ -358,6 +510,9 @@ a:hover {
   }
   .sidebar-user-details {
     display: none;
+  }
+  .dashboard-card {
+    width: 45%;
   }
 }
 
