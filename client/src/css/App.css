@@ -341,7 +341,7 @@ hr.card-divider {
   display: flex;
   flex-flow: column;
   justify-content: space-evenly;
-  height: 85%;
+  height: 80%;
 }
 
 .progress-bar {
