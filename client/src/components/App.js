@@ -24,6 +24,7 @@ class App extends Component {
           <Switch location={this.props.location}>
             <Route path="/" exact component={HomePage} />
             <Route path="/projects" exact component={ProjectsPage} />
+            <Route path="/projects/:project_id" component={ProjectsPage} />
             <Route path="/tasks" exact component={TasksPage} />
             <Route path="/resources" exact component={ResourcesPage} />
             <Route path="/settings" exact component={SettingsPage} />

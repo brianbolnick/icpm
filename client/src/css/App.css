@@ -13,6 +13,13 @@ div#app {
   height: 100%;
 }
 
+a {
+  color: inherit;
+}
+a:hover {
+  color: inherit;
+}
+
 .ui.text.container {
   -webkit-font-smoothing: antialiased;
 }
@@ -290,6 +297,13 @@ a:hover {
   margin-top: 30px;
   border-radius: 10px;
   box-shadow: 2px 4px 15px -4px #21212185;
+  transition: 0.3s;
+}
+
+.dashboard-card:hover {
+  cursor: pointer;
+  transform:  translateY(-5px);
+  transition: 0.3s;
 }
 
 .card-content {
