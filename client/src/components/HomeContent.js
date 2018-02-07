@@ -1,19 +1,43 @@
 import React, { Component } from 'react';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Popup } from 'semantic-ui-react'
-import { Link } from "react-router-dom";
-import Logo from '../img/impl-logo.png'
-import 'react-tippy/dist/tippy.css';
-import { Tooltip } from 'react-tippy';
-import HomeContent from './HomeContent'
-
 
 class Content extends Component {
   render() {
     return (
       <div>
-          <div className="menu-nav" >
-              <div className="menu-nav-item"><Link to='/'>LOGIN</Link></div>
+        <div className="dashboard-title" >
+          <div className="projects-title">Implementation Projects</div>
+          <div className="projects-subtitle">23 Active</div>
+        </div>
+        <div className="main-container">
+          <div className="dashboard-card">
+            stuff
           </div>
+
+          <div className="dashboard-card">
+            stuff
+          </div>
+
+          <div className="dashboard-card">
+            stuff
+          </div>
+
+          <div className="dashboard-card">
+            stuff
+          </div>
+
+          <div className="dashboard-card">
+            stuff
+          </div>
+
+          <div className="dashboard-card">
+            stuff
+          </div>
+
+          <div className="dashboard-card">
+            stuff
+          </div>
+
+        </div>
       </div>
     );
   }

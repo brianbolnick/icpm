@@ -1,65 +1,60 @@
 import React, { Component } from 'react';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header, Popup } from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
-import Logo from '../img/impl-logo.png'
-import 'react-tippy/dist/tippy.css';
-import { Tooltip } from 'react-tippy';
-import HomeContent from './HomeContent'
+import Logo from '../img/impl-logo-wt.png'
 
-class SidebarMenu extends Component {
+class SidebarContent extends Component {
     render() {
-        const popupStyle = {
-            borderRadius: '2px',
-            opacity: 0.7
-        }
         return (
-            <Sidebar as={Menu} animation='push' width='thin' visible icon='labeled' vertical inverted>
-                <Menu.Item name='home' style={{ marginBottom: '150px' }}>
-                    <Popup
-                        trigger={
-                            <Image as={Link} to='/' src={Logo} style={{ width: '35px' }} className="sidebar-logo" />
-                        }
-                        content='Home'
-                        position='right center'
-                        style={popupStyle}
-                        inverted
-                    />
-                </Menu.Item>
-                <Menu.Item name='dashboard'>
-                    <Popup
-                        trigger={
-                            <Link to="/dashboard"><Icon name='dashboard' link className="sidebar-item" /></Link>
-                        }
-                        content='Dashboard'
-                        position='right center'
-                        style={popupStyle}
-                        inverted
-
-                    />
-                </Menu.Item>
-                <Menu.Item name='tasks'>
-                    <Popup
-                        trigger={
-                            <Link to="/tasks"><Icon name='tasks' link className="sidebar-item" /></Link>
-                        }
-                        content='Tasks'
-                        position='right center'
-                        style={popupStyle}
-                        inverted
-                    />
-                </Menu.Item>
-                <Menu.Item name='travel'>
-                    <Popup
-                        trigger={
-                            <Link to="/resources"> <Icon name='travel' link  className="sidebar-item" /> </Link>
-                        }
-                        content='Resources'
-                        position='right center'
-                        style={popupStyle}
-                        inverted
-                    />
-                </Menu.Item>
-            </Sidebar>
+            <div className="sidebar-content">
+                <div className="sidebar-user-info">
+                    <div className="sidebar-profile-image">
+                        <img src={Logo} alt="" style={{ width: '75px' }} />
+                    </div>
+                    <div className="sidebar-user-details">
+                        <div className="sidebar-user-name">
+                            Brian Bolnick
+                            </div>
+                        <div className="sidebar-user-role">
+                            Higher Ed
+                            </div>
+                    </div>
+                </div>
+                <div className="sidebar-nav-links">
+                    <ul className="sidebar-links">
+                        <li className="sidebar-link">
+                            <Link to="/">
+                                <Icon name='dashboard' link className="sidebar-item" />
+                                <span className="sidebar-link-text">Dashboard</span>
+                            </Link>
+                        </li>
+                        <li className="sidebar-link">
+                            <Link to="/projects">
+                                <Icon name='block layout' link className="sidebar-item" />
+                                <span className="sidebar-link-text">Projects</span>
+                            </Link>
+                        </li>
+                        <li className="sidebar-link">
+                            <Link to="/tasks">
+                                <Icon name='tasks' link className="sidebar-item" />
+                                <span className="sidebar-link-text">Tasks</span>
+                            </Link>
+                        </li>
+                        <li className="sidebar-link">
+                            <Link to="/resources">
+                                <Icon name='travel' link className="sidebar-item" />
+                                <span className="sidebar-link-text">Resources</span>
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+                <div className="sidebar-footer">
+                    <Link to="/settings" className="sidebar-link">
+                        <Icon name='settings' link className="sidebar-item" />
+                        <span className="sidebar-link-text">Settings</span>
+                    </Link>
+                </div>
+            </div>
         )
     }
 }
@@ -68,14 +63,12 @@ class Layout extends Component {
     render() {
         return (
             <div className={this.props.bg} style={{ minHeight: '100%' }}>
-                <Sidebar.Pushable as={Segment} style={{ background: 'none' }}>
-                    <SidebarMenu />
-                    <Sidebar.Pusher>
-                        <Segment basic>
-                            {this.props.children}
-                        </Segment>
-                    </Sidebar.Pusher>
-                </Sidebar.Pushable>
+                <div className="sidebar">
+                    <SidebarContent />
+                </div>
+                <div className="main-content">
+                    {this.props.children}
+                </div>
             </div>
         );
     }
