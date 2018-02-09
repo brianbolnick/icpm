@@ -16,7 +16,7 @@ class SidebarContent extends Component {
                             Brian Bolnick
                             </div>
                         <div className="sidebar-user-role">
-                            Higher Ed
+                            Higher Ed {process.env.REACT_APP_SECRET_CODE}
                             </div>
                     </div>
                 </div>

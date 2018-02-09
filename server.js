@@ -3,6 +3,8 @@
 var express = require('express');
 const path = require('path');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
 
 //Require data models here
 // example: var User = require('./model/users');
@@ -11,6 +13,14 @@ var app = express();
 var router = express.Router();
 
 // Add database configuration here
+mongoose.connect('mongodb://dbconfig:icpmdb1@ds013216.mlab.com:13216/icpm');
+var User = require('./server/models/User');
+var Todo = require('./server/models/Todo');
+var Project = require('./server/models/Project');
+var Milestone = require('./server/models/Milestone');
+var Contact = require('./server/models/Contact');
+
+
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
@@ -22,14 +32,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Allow CORS requests - customize this to restrict it to certain origins
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-    res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
-    res.setHeader('Cache-Control', 'no-cache');
-    next();
-});
+// app.use(function (req, res, next) {
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+//     res.setHeader('Access-Control-Allow-Credentials', 'true');
+//     res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
+//     res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
+//     res.setHeader('Cache-Control', 'no-cache');
+//     next();
+// });
 
 
 //Endpoints go here

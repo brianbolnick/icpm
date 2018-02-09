@@ -40,7 +40,7 @@ class Card extends Component {
                                     </div>
                                 </div>
                                 <div className="card-auth">
-                                    <span className="card-task-title">Authentication</span>
+                                    <span className="card-task-title">Auth</span>
                                     <div className="progress-bar">
                                         <div className="progress-auth" style={{ width: '90%' }}>
                                             90%
