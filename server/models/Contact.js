@@ -5,7 +5,6 @@ var Schema = mongoose.Schema;
 
 
 var ContactsSchema = new Schema({
-    _id: Schema.Types.ObjectId,
     project_id: { type: Schema.Types.ObjectId, ref: 'Project' },
     first_name: String,
     last_name: String,

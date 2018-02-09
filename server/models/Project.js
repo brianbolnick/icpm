@@ -5,13 +5,13 @@ var Schema = mongoose.Schema;
 
 
 var ProjectsSchema = new Schema({
-    _id: Schema.Types.ObjectId,
     user_id: { type: Schema.Types.ObjectId, ref: 'User' },
     name: String,
     csm: String,
     end_date: Date,
     contacts: [{ type: Schema.Types.ObjectId, ref: 'Contact' }],
     status: String,
+    imp_package: String,
     sis: String,
     auth_type: String,
     legacy_lms: String,

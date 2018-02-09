@@ -5,13 +5,12 @@ var Schema = mongoose.Schema;
 
 
 var UsersSchema = new Schema({
-    _id: Schema.Types.ObjectId,
     first_name: String,
     last_name: String,
     email: String,
     password: String,
-    projects:  [{ type: Schema.Types.ObjectId, ref: 'Project' }],
-    todos:  [{ type: Schema.Types.ObjectId, ref: 'Todo' }],
+    projects: [{ type: Schema.Types.ObjectId, ref: 'Project' }],
+    todos: [{ type: Schema.Types.ObjectId, ref: 'Todo' }],
     team: String,
     avatar_url: String
 

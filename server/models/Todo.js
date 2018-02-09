@@ -5,7 +5,6 @@ var Schema = mongoose.Schema;
 
 
 var TodosSchema = new Schema({
-    _id: Schema.Types.ObjectId,
     user_id: { type: Schema.Types.ObjectId, ref: 'User' },
     description: String,
     priority: Number,

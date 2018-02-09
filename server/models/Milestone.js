@@ -5,7 +5,6 @@ var Schema = mongoose.Schema;
 
 
 var MilestonesSchema = new Schema({
-    _id: Schema.Types.ObjectId,
     project_id: { type: Schema.Types.ObjectId, ref: 'Project' },
     type: String,
     tasks: {},
