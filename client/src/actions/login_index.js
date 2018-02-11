@@ -10,6 +10,7 @@ import Auth from '../tools/Auth';
 
 export const handleLogin = (values) => {
     return (dispatch, getState) => {
+        console.log(values);
         dispatch({ type: START_LOGIN })
         axios.post(
             `${API_URL}/auth/login`,

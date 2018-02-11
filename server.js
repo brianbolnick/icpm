@@ -61,5 +61,4 @@ router.get('*', (req, res) => {
 
 app.listen(port, function () {
     console.log(`server running on port ${port}`);
-    console.log(process.env.REACT_APP_SECRET_CODE);
 });

@@ -5,11 +5,22 @@ import { connect } from 'react-redux';
 // import axios from 'axios';
 // import { API_URL } from '../../tools/api-config';
 import { handleSignup, resetErrors } from '../../actions/signup_index';
+import { handleLogin } from '../../actions/login_index';
 
 class SignUpPage extends Component {
 
     handleFormSubmit = values => {
-        this.props.handleSignup(values)
+        console.log(values)
+        this.props.handleSignup(values);
+        const loginVals = {
+            email: values.email,
+            password: values.password
+        }
+
+        setTimeout(() => {
+            this.props.handleLogin(loginVals)
+        }, 2000);
+        
     }
 
     handleDismiss = () => {
@@ -43,8 +54,10 @@ class SignUpPage extends Component {
 function mapStateToProps(state) {
     return {
         error: state.signup.error,
-        fetching: state.signup.fetching
+        fetching: state.signup.fetching,
+        loginError: state.login.error,
+        loginFetching: state.login.fetching
     }
 }
 
-export default connect(mapStateToProps, { handleSignup, resetErrors })(SignUpPage)
+export default connect(mapStateToProps, { handleSignup, resetErrors, handleLogin })(SignUpPage)

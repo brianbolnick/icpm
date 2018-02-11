@@ -18,7 +18,7 @@ export const handleSignup = (values) => {
                     type: END_SIGNUP,
                     payload: "Thank you for signing up!"
                 })
-                dispatch(push('/login'))
+                // dispatch(push('/dashboard'))
             }
             else {
                 dispatch({
