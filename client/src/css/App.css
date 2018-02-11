@@ -464,6 +464,7 @@ span.card-task-title {
   background: linear-gradient(to right, rgb(255, 153, 102), rgb(255, 94, 98));
   height: 100%;
   display: flex;
+  flex-flow: column;
   align-items: center;
   justify-content: center;
 }
@@ -604,10 +605,28 @@ span.form-error {
   font-weight: 600;
   font-size: 1.1rem;
 }
+
 span.form-warning {
   color: blue;
   font-weight: 600;
   font-size: 1.1rem;
+}
+
+a.register-link {
+  line-height: 50px;
+  text-decoration: underline;
+  font-size: 1.1rem;
+}
+
+.page-error {
+  background: #fff;
+  padding: 10px 25px;
+  margin: 10px;
+  color: #ff5e61;
+  font-weight: 800;
+  border: solid 1px #212121;
+  border-radius: 4px;
+  font-size: 1.2rem;
 }
 
 /* Responsive Branding */

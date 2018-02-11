@@ -3,9 +3,16 @@
 var express = require('express');
 const path = require('path');
 var bodyParser = require('body-parser');
+const passport = require('passport');
+const config = require('./config');
 
 var app = express();
 var router = express.Router();
+
+// db and models 
+const db_url = process.env.MONGODB_URI || config.dbUri
+
+require('./server/models').connect(db_url);
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
@@ -25,6 +32,19 @@ app.use(function (req, res, next) {
     res.setHeader('Cache-Control', 'no-cache');
     next();
 });
+
+// passport middleware
+app.use(passport.initialize());
+
+// load passport strategies
+const localSignupStrategy = require('./server/passport/local-signup');
+const localLoginStrategy = require('./server/passport/local-login');
+passport.use('local-signup', localSignupStrategy);
+passport.use('local-login', localLoginStrategy);
+
+// pass the authenticaion checker middleware
+const authCheckMiddleware = require('./server/middleware/auth-check');
+app.use('/api', authCheckMiddleware);
 
 // Routes
 const authRoutes = require('./server/routes/auth-routes');

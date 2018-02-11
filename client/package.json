@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "body-parser": "^1.18.2",
+    "jwt-decode": "^2.2.0",
     "marked": "^0.3.12",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",

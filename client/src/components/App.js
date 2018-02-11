@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import '../css/App.css';
-import HomePage from './HomePage.js'
-import ProjectsPage from './ProjectsPage.js'
-import TasksPage from './TasksPage.js'
-import ResourcesPage from './ResourcesPage.js'
-import SettingsPage from './SettingsPage.js'
-import LoginPage from './Login.js'
-import SignUpPage from './SignUp.js'
+import HomePage from './Dashboard/HomePage.js'
+import ProjectsPage from './Projects/ProjectsPage.js'
+import TasksPage from './Todos/TasksPage.js'
+import ResourcesPage from './Resources/ResourcesPage.js'
+import SettingsPage from './Profile/SettingsPage.js'
+import LoginPage from './Auth/Login.js'
+import SignUpPage from './Auth/SignUp.js'
 import NotFound from './NotFound.js'
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Route, withRouter, Switch } from "react-router-dom";
@@ -25,6 +25,7 @@ class App extends Component {
         >
           <Switch location={this.props.location}>
             <Route path="/" exact component={HomePage} />
+            <Route path="/dashboard" exact component={HomePage} />
             <Route path="/projects" exact component={ProjectsPage} />
             <Route path="/projects/:project_id" component={ProjectsPage} />
             <Route path="/tasks" exact component={TasksPage} />

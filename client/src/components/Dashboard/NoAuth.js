@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DashboardCard from './DashboardCard'
 
-class Content extends Component {
+class NoAuth extends Component {
   render() {
 
     const data = {
@@ -14,7 +14,7 @@ class Content extends Component {
 
     var cardArr = []
     for (var i = 0; i < 10; i++) {
-      cardArr.push(<DashboardCard data={data}/>);
+      cardArr.push(<DashboardCard data={data} key={i}/>);
     }
 
     const cards = cardArr.map((card) => {
@@ -24,8 +24,8 @@ class Content extends Component {
     return (
       <div>
         <div className="dashboard-title" >
-          <div className="projects-title">Implementation Projects</div>
-          <div className="projects-subtitle">23 Active</div>
+          <div className="projects-title">Welcome to ICPM</div>
+          <div className="projects-subtitle">Here's an example of what you'll see when you login.</div>
         </div>
         <div className="main-container">
           {cards}
@@ -35,4 +35,4 @@ class Content extends Component {
   }
 }
 
-export default Content;
+export default NoAuth;

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Layout from './Layout'
+import Layout from '../Layout'
 
-class DashboardPage extends Component {
+class ResourcesPage extends Component {
   render() {
     return (
-      <Layout bg="dashboard-layout">
+      <Layout bg="resources-layout">
           <div className="home-page" style={{ minHeight: '100%' }}>            
           </div>       
         </Layout>
@@ -12,4 +12,4 @@ class DashboardPage extends Component {
   }
 }
 
-export default DashboardPage;
+export default ResourcesPage;

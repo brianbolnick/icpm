@@ -1,30 +1,25 @@
 import React, { Component } from 'react';
-import Logo from '../img/logo.png';
+import Logo from '../../img/logo.png';
 import LoginForm from './LoginForm'
-// import { connect } from 'react-redux';
-// import { handleSignup } from '../../actions/signup_index';
-import axios from 'axios';
-import { API_URL } from '../tools/api-config';
+import { connect } from 'react-redux';
+import { handleLogin, resetErrors } from '../../actions/login_index';
+
 
 class LoginPage extends Component {
 
     handleFormSubmit = values => {
-        console.log(values);
-        axios.post(
-            `${API_URL}/auth/login`,
-            values
-        ).then(response => {
-            console.log("response", response.data);
-        }).catch(error => {
-            console.log(error)
-        })
-        // window.location.replace('/');
-        // this.props.handleSignup(values)
+        this.props.handleLogin(values)
     }
 
     render() {
         return (
             <div className='signup-page' style={{ minHeight: '100vh' }}>
+                {this.props.error ?
+                    <div className="page-error">{this.props.error}</div>
+                    :
+                    null
+                }
+
                 <div className="signup-container">
                     <div className="signin-logo">
                         <img src={Logo} alt="" style={{ width: '100%' }} />
@@ -36,4 +31,11 @@ class LoginPage extends Component {
     }
 }
 
-export default LoginPage;
+function mapStateToProps(state) {
+    return {
+        error: state.login.error,
+        fetching: state.login.fetching
+    }
+}
+
+export default connect(mapStateToProps, { handleLogin, resetErrors })(LoginPage)

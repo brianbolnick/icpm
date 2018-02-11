@@ -14,7 +14,9 @@ router.get('/', function (req, res) {
 });
 
 router.get('/test', function (req, res) {
-    res.json({ message: 'Test!' });
+    res.status(200).json({
+        message: "You're authorized to see this secret message."
+    });
 });
 
 
