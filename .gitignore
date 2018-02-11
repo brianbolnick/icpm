@@ -258,6 +258,5 @@ buck-out/
 !.vscode/extensions.json
 .history
 
-config/index.json
 
 # End of https://www.gitignore.io/api/node,macos,reactnative,visualstudiocode

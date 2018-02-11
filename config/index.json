@@ -1,0 +1,4 @@
+{
+    "dbUri": "mongodb://dbconfig:icpmdb1@ds013216.mlab.com:13216/icpm",
+    "jwtSecret": "hfgvjbhkhljipu9089786r75ytfuygkljbhkvcjgxurys4w6e75r68otigyftuydir8txudfghkvguoygiti"
+  }
