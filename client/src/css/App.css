@@ -564,7 +564,6 @@ select {
   margin: 0;
 }
 
-
 select:focus {
   border-bottom: solid 2px #ff6c62;
   outline: none;
@@ -597,7 +596,7 @@ button.form-button {
 button:hover {
   background-color: #F29B6F;
   transition: 0.2s;
-   cursor: pointer;
+  cursor: pointer;
 }
 
 span.form-error {
@@ -627,6 +626,30 @@ a.register-link {
   border: solid 1px #212121;
   border-radius: 4px;
   font-size: 1.2rem;
+}
+
+.project-overview {
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-options {
+  padding: 40px;
+}
+
+a.new-project {
+  color: #212121;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+i.link.icon.option-item {
+  font-size: 2rem;
+}
+
+.form-group.row-item-3 {
+  width: 25%;
 }
 
 /* Responsive Branding */
@@ -673,6 +696,9 @@ a.register-link {
   .form-group.row-item {
     width: 100%;
   }
+  .form-group.row-item-3 {
+    width: 100%;
+  }
 }
 
 /* Tablet */
@@ -707,6 +733,9 @@ a.register-link {
   .signup-container {
     width: 60%;
   }
+  /* .form-group.row-item-3 {
+    width: 100%;
+  } */
 }
 
 @media only screen and (min-width: 767px) {

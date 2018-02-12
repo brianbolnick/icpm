@@ -1,7 +1,6 @@
 import { START_SIGNUP, END_SIGNUP, SET_SIGNUP_ERRORS } from './types';
 import axios from 'axios';
 import { API_URL } from '../tools/api-config';
-import { push } from 'react-router-redux'
 // const token = localStorage.getItem('token');
 // const config = { headers: { 'AUTHORIZATION': `Bearer ${token}` } }
 
@@ -18,7 +17,6 @@ export const handleSignup = (values) => {
                     type: END_SIGNUP,
                     payload: "Thank you for signing up!"
                 })
-                // dispatch(push('/dashboard'))
             }
             else {
                 dispatch({

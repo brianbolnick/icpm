@@ -10,7 +10,6 @@ import { handleLogin } from '../../actions/login_index';
 class SignUpPage extends Component {
 
     handleFormSubmit = values => {
-        console.log(values)
         this.props.handleSignup(values);
         const loginVals = {
             email: values.email,
