@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import Layout from '../Layout'
 import NewProjectForm from './NewProjectForm'
+import { connect } from 'react-redux';
+import { createProject } from '../../actions/project_index';
 
 class ProjectPage extends Component {
+
+    handleFormSubmit = values => {
+        // console.log(values);
+        this.props.createProject(values);        
+    }
     render() {
         return (
             <Layout bg="dashboard-layout">
@@ -10,11 +17,18 @@ class ProjectPage extends Component {
                     <div className="dashboard-title" >
                         <div className="projects-title">Create a New Project</div>
                     </div>
-                    <NewProjectForm />
+                    <NewProjectForm onSubmit={this.handleFormSubmit}/>
                 </div>
             </Layout>
         );
     }
 }
 
-export default ProjectPage;
+function mapStateToProps(state) {
+    return {
+        error: state.project.error,
+        fetching: state.project.fetching
+    }
+}
+
+export default connect(mapStateToProps, { createProject })(ProjectPage)

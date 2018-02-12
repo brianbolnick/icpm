@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import LoginReducer from './login_reducer';
 import SignupReducer from './signup_reducer';
+import ProjectReducer from './project_reducer';
 import { reducer as formReducer } from 'redux-form';
 
 export default combineReducers({
@@ -9,4 +10,5 @@ export default combineReducers({
     form: formReducer,
     signup: SignupReducer,
     login: LoginReducer,
+    project: ProjectReducer
 });

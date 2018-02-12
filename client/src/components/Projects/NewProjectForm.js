@@ -3,25 +3,29 @@ import { Field, reduxForm } from 'redux-form'
 
 const validate = values => {
     const errors = {}
-    if (!values.first_name) {
-        errors.first_name = 'Please enter your first name'
+    if (!values.name) {
+        errors.name = 'Please enter a school name'
     }
-    if (!values.last_name) {
-        errors.last_name = 'Please enter your last name'
+    if (!values.csm) {
+        errors.csm = 'Please enter a CSM'
     }
-    if (!values.email) {
-        errors.email = 'Please enter an email address'
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-        errors.email = 'Invalid email address'
+    if (!values.sis) {
+        errors.sis = 'Please enter an SIS'
     }
-    if (!values.password) {
-        errors.password = 'Please enter a password'
+    if (!values.legacy_lms) {
+        errors.legacy_lms = 'Please enter an LMS'
     }
-    if (!values.password_confirm) {
-        errors.password_confirm = 'Please confirm your password'
+    if (!values.auth_type) {
+        errors.auth_type = 'Please select Authentication'
     }
-    if (values.password_confirm !== values.password) {
-        errors.password_confirm = 'Passwords do not match'
+    if (!values.end_date) {
+        errors.end_date = 'Please select a close date'
+    }
+    if (!values.package) {
+        errors.package = 'Please select a Package'
+    }
+    if (!values.support) {
+        errors.support = 'Please select a Support Tier'
     }
     return errors
 }
@@ -42,7 +46,7 @@ const renderField = ({
 }) => (
         <div className="form-group">
             <label>{label}</label>
-            <input {...input} type={type} style={{ background: 'transparent' }}/>
+            <input {...input} type={type} style={{ background: 'transparent' }} />
             {touched &&
                 ((error && <span className="form-error">{error}</span>) ||
                     (warning && <span className="form-warning">{warning}</span>))}
@@ -57,7 +61,7 @@ const renderRowField = ({
 }) => (
         <div className="form-group row-item">
             <label>{label}</label>
-            <input {...input} type={type} style={{ background: 'transparent' }}/>
+            <input {...input} type={type} style={{ background: 'transparent' }} />
             {touched &&
                 ((error && <span className="form-error">{error}</span>) ||
                     (warning && <span className="form-warning">{warning}</span>))}
@@ -80,7 +84,7 @@ const renderRowField3 = ({
     )
 
 
-const SignupForm = props => {
+const NewProjectForm = props => {
     const { handleSubmit, submitting } = props
     return (
         <div className="signin-form">
@@ -166,10 +170,10 @@ const SignupForm = props => {
 }
 
 export default reduxForm({
-    form: 'signUpForm',
+    form: 'newProjectForm',
     validate,
     warn
-})(SignupForm)
+})(NewProjectForm)
 
 
 
