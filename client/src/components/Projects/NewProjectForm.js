@@ -87,7 +87,7 @@ const renderRowField3 = ({
 const NewProjectForm = props => {
     const { handleSubmit, submitting } = props
     return (
-        <div className="signin-form">
+        <div className="new-form">
             <form onSubmit={handleSubmit} style={{ width: '85%' }}>
                 <div className="form-row">
                     <Field

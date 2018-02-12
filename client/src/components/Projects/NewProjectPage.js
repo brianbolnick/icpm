@@ -8,16 +8,18 @@ class ProjectPage extends Component {
 
     handleFormSubmit = values => {
         // console.log(values);
-        this.props.createProject(values);        
+        this.props.createProject(values);
     }
     render() {
         return (
             <Layout bg="dashboard-layout">
                 <div className="home-page" style={{ minHeight: '100vh', width: '75%' }}>
-                    <div className="dashboard-title" >
-                        <div className="projects-title">Create a New Project</div>
+                    <div className="project-form-container">
+                        <div className="form-title" >
+                            <div className="projects-title">Create a New Project</div>
+                        </div>
+                        <NewProjectForm onSubmit={this.handleFormSubmit} />
                     </div>
-                    <NewProjectForm onSubmit={this.handleFormSubmit}/>
                 </div>
             </Layout>
         );
