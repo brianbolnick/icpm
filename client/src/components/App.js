@@ -3,6 +3,7 @@ import '../css/App.css';
 import HomePage from './Dashboard/HomePage.js'
 import ProjectsPage from './Projects/ProjectsPage.js'
 import NewProjectPage from './Projects/NewProjectPage.js'
+import ViewProjectPage from './Projects/ViewProject.js'
 import TasksPage from './Todos/TasksPage.js'
 import ResourcesPage from './Resources/ResourcesPage.js'
 import SettingsPage from './Profile/SettingsPage.js'
@@ -50,7 +51,7 @@ class App extends Component {
               <PrivateRoute path="/dashboard" exact component={HomePage} />
               <PrivateRoute path="/projects" exact component={ProjectsPage} />
               <PrivateRoute path="/projects/new" exact component={NewProjectPage} />
-              <PrivateRoute path="/projects/:project_id" exact component={ProjectsPage} />
+              <PrivateRoute path="/projects/:project_id" exact component={ViewProjectPage} />
               <PrivateRoute path="/tasks" exact component={TasksPage} />
               <PrivateRoute path="/resources" exact component={ResourcesPage} />
               <PrivateRoute path="/settings" exact component={SettingsPage} />

@@ -1,10 +1,9 @@
-'use strict'
-
 var express = require('express');
 const path = require('path');
 var bodyParser = require('body-parser');
 const passport = require('passport');
 const config = require('./config');
+var cors = require('cors');
 
 var app = express();
 var router = express.Router();
@@ -24,14 +23,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // CORS stuff
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-    res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization');
-    res.setHeader('Cache-Control', 'no-cache');
-    next();
-});
+var allowedOrigins = [
+    'http://localhost:3000',
+    'https://icpm.herokuapp.com'
+];
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) === -1) {
+            var msg = 'The CORS policy for this site does not ' +
+                'allow access from the specified Origin.';
+            return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+    }
+}));
+
 
 // passport middleware
 app.use(passport.initialize());

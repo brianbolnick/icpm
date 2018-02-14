@@ -60,6 +60,7 @@ router.route('/projects')
 
     //post new project to the database
     .post(function (req, res) {
+        req.body = JSON.parse(Object.keys(req.body)[0])
         const project = new Project();
         const project_id = project._id;
 
@@ -69,8 +70,8 @@ router.route('/projects')
             user.projects.push(project_id);
             user.save(function (err) {
                 if (err) { res.send(err); }
-                console.log("user updated");
             });
+            console.log("user updated");
         });
         project.name = req.body.name;
         project.imp_package = req.body.imp_package;
@@ -84,16 +85,35 @@ router.route('/projects')
         project.user_id = req.body.user_id;
 
         project.save(function (err) {
+            console.log("saved project");
             if (err)
                 res.send(err);
-            res.json({
-                message: 'Project successfully created',
-                id: project_id,
-                user_id: req.body.user_id
-            });
+            res.json(project);
         });
     });
 
+//SINGLE PROJECT ROUTES
+router.get('/projects/:project_id', function (req, res, next) {
+    var project_id = req.params.project_id;
+    Project.findById((project_id), function (err, project) {
+        if (err) { res.send(err); }
+        res.json(project);
+    });
+})
+
+//USER PROJECT ROUTE
+router.get('/users/:user_id/projects', function (req, res, next) {
+    var user_id = req.params.user_id;
+    User.findById(user_id)
+        .populate('projects')
+        .then(projects => {
+            console.log(projects)
+            res.json(projects)
+        })
+        .catch(err => {
+            res.json({ message: err.message })
+        })
+})
 module.exports = router;
 
 

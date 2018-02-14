@@ -136,8 +136,8 @@ const NewProjectForm = props => {
                         label="End Date"
                     />
                     <div className="form-group row-item-3">
-                        <label htmlFor="support">Support</label>
-                        <Field name="support" component="select">
+                        <label htmlFor="support_package">Support</label>
+                        <Field name="support_package" component="select">
                             <option />
                             <option value="standard">Standard</option>
                             <option value="247">24/7</option>
@@ -147,8 +147,8 @@ const NewProjectForm = props => {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="package">Package</label>
-                    <Field name="package" component="select">
+                    <label htmlFor="imp_package">Package</label>
+                    <Field name="imp_package" component="select">
                         <option />
                         <option value="pilot">Pilot</option>
                         <option value="standard">Standard</option>

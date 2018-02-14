@@ -1,12 +1,8 @@
-// eslint-disable-next-line
 import { START_LOGIN, END_LOGIN, SET_LOGIN_ERRORS } from './types';
 import axios from 'axios';
 import { API_URL } from '../tools/api-config';
 import { push } from 'react-router-redux'
 import Auth from '../tools/Auth';
-// const config = { headers: { 'AUTHORIZATION': `Bearer ${Auth.getToken()}` } }
-
-
 
 export const handleLogin = (values) => {
     return (dispatch, getState) => {
@@ -26,7 +22,7 @@ export const handleLogin = (values) => {
             else {
                 dispatch({
                     type: SET_LOGIN_ERRORS,
-                    payload: `There was an error logging in: ${response.body.message}`
+                    payload: `There was an error logging in: ${response.data.message}`
                 })
             }
         }).catch(error => {

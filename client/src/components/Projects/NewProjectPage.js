@@ -3,23 +3,44 @@ import Layout from '../Layout'
 import NewProjectForm from './NewProjectForm'
 import { connect } from 'react-redux';
 import { createProject } from '../../actions/project_index';
+import LoadIcon from '../../img/panda-load.gif'
 
 class ProjectPage extends Component {
 
     handleFormSubmit = values => {
-        // console.log(values);
+        const user_id = JSON.parse(localStorage.getItem('user')).id;
+        values = { ...values, user_id: user_id }
         this.props.createProject(values);
     }
     render() {
         return (
             <Layout bg="dashboard-layout">
                 <div className="home-page" style={{ minHeight: '100vh', width: '75%' }}>
-                    <div className="project-form-container">
-                        <div className="form-title" >
-                            <div className="projects-title">Create a New Project</div>
+                    {this.props.error ?
+                        <div className="page-error">{this.props.error}</div>
+                        :
+                        null
+                    }
+                    {this.props.fetching ?
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            height: '100vh',
+                            flexFlow: 'column'
+                        }}>
+                            <img src={LoadIcon} alt="" />
+                            <br/>
+                            Creating the project......
                         </div>
-                        <NewProjectForm onSubmit={this.handleFormSubmit} />
-                    </div>
+                        :
+                        <div className="project-form-container">
+                            <div className="form-title" >
+                                <div className="projects-title">Create a New Project</div>
+                            </div>
+                            <NewProjectForm onSubmit={this.handleFormSubmit} />
+                        </div>
+                    }
                 </div>
             </Layout>
         );

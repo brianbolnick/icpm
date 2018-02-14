@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import Logo from '../../img/logo.png';
 import SignUpForm from './SignUpForm'
 import { connect } from 'react-redux';
-// import axios from 'axios';
-// import { API_URL } from '../../tools/api-config';
 import { handleSignup, resetErrors } from '../../actions/signup_index';
 import { handleLogin } from '../../actions/login_index';
+import LoadIcon from '../../img/panda-load.gif'
+
 
 class SignUpPage extends Component {
 
@@ -19,7 +19,7 @@ class SignUpPage extends Component {
         setTimeout(() => {
             this.props.handleLogin(loginVals)
         }, 2000);
-        
+
     }
 
     handleDismiss = () => {
@@ -35,7 +35,17 @@ class SignUpPage extends Component {
                     null
                 }
                 {this.props.fetching ?
-                    <div>Hold up! Stuff is happening...</div>
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        height: '100vh',
+                        flexFlow: 'column'
+                    }}>
+                        <img src={LoadIcon} alt="" />
+                        <br />
+                        Creating the project......
+                        </div>
                     :
                     <div className="signup-container">
                         <div className="signin-logo">

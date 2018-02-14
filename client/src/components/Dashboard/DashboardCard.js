@@ -4,23 +4,24 @@ import { Link } from "react-router-dom";
 
 class Card extends Component {
     render() {
+        const { data } = this.props;
         return (
             <div className="dashboard-card" >
-                <Link to={`/projects/${this.props.data.id}`} >
+                <Link to={`/projects/${data._id}`} >
                     <div className="card-content">
                         <div className="card-heading">
-                            <div className="card-title">{this.props.data.schoolName}</div>
-                            <div className="card-subtitle">{this.props.data.package}</div>
+                            <div className="card-title">{data.name}</div>
+                            <div className="card-subtitle">{data.imp_package}</div>
                         </div>
                         <hr className="card-divider" />
                         <div className="card-main">
                             <div className="csm-info">
                                 <span>CSM:</span>
-                                <div className="csm-name">{this.props.data.csm}</div>
+                                <div className="csm-name">{data.csm}</div>
                             </div>
                             <div className="date-info">
                                 <span>Target Close Date:</span>
-                                <div className="csm-name">{this.props.data.date}</div>
+                                <div className="csm-name">{data.end_date}</div>
                             </div>
                             <div className="card-stats">
                                 <div className="card-sis">

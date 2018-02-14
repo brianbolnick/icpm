@@ -3,7 +3,7 @@ import Logo from '../../img/logo.png';
 import LoginForm from './LoginForm'
 import { connect } from 'react-redux';
 import { handleLogin, resetErrors } from '../../actions/login_index';
-
+import LoadIcon from '../../img/panda-load.gif'
 
 class LoginPage extends Component {
 
@@ -19,13 +19,26 @@ class LoginPage extends Component {
                     :
                     null
                 }
-
-                <div className="signup-container">
-                    <div className="signin-logo">
-                        <img src={Logo} alt="" style={{ width: '100%' }} />
+                {this.props.fetching ?
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        height: '100vh',
+                        flexFlow: 'column'
+                    }}>
+                        <img src={LoadIcon} alt="" />
+                        <br />
+                        Creating the project......
+                        </div>
+                    :
+                    <div className="signup-container">
+                        <div className="signin-logo">
+                            <img src={Logo} alt="" style={{ width: '100%' }} />
+                        </div>
+                        <LoginForm onSubmit={this.handleFormSubmit} />
                     </div>
-                    <LoginForm onSubmit={this.handleFormSubmit} />
-                </div>
+                }
             </div>
         );
     }

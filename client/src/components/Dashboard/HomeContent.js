@@ -1,38 +1,92 @@
 import React, { Component } from 'react';
-import DashboardCard from './DashboardCard'
+import Layout from '../Layout'
+import DashboardCard from '../Dashboard/DashboardCard'
+import { Icon } from 'semantic-ui-react'
+import { Link } from "react-router-dom";
+import 'react-tippy/dist/tippy.css';
+import { Tooltip } from 'react-tippy';
+import { connect } from 'react-redux';
+import { getAllProjects } from '../../actions/project_index';
+import LoadIcon from '../../img/beyonce-load.gif'
 
-class Content extends Component {
+const user_id = JSON.parse(localStorage.getItem('user')).id;
+
+class ProjectPage extends Component {
+  componentDidMount() {
+    this.props.getAllProjects(user_id);
+  }
+
   render() {
+    return (
 
-    const data = {
-      id: "1",
-      schoolName: "University of Utah",
-      package: "Premium",
-      csm: "Taylor Austin",
-      date: "May 7, 2018"
-    }
+      <ProjectContent data={this.props.projects} />
 
-    var cardArr = []
-    for (var i = 0; i < 10; i++) {
-      cardArr.push(<DashboardCard data={data} key={i}/>);
-    }
+    );
+  }
+}
 
-    const cards = cardArr.map((card) => {
-      return card;
+class ProjectContent extends Component {
+
+  render() {
+    const { data } = this.props;
+
+
+    const cards = data.map((project, index) => {
+      return <DashboardCard data={project} key={project._id} />;
     })
 
     return (
       <div>
-        <div className="dashboard-title" >
-          <div className="projects-title">Implementation Projects</div>
-          <div className="projects-subtitle">23 Active</div>
-        </div>
-        <div className="main-container">
-          {cards}
-        </div>
+        {this.props.fetching ?
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100vh',
+            flexFlow: 'column'
+          }}>
+            <img src={LoadIcon} alt="" />
+            <br />
+            Getting projects......
+          </div>
+          :
+          <div>
+            <div className="project-overview">
+              <div className="dashboard-title" >
+                <div className="projects-title">Implementation Projects</div>
+                <div className="projects-subtitle">{data.length} Active</div>
+              </div>
+              {/* <div className="project-options">
+                <Link to="/projects/new" className='new-project'>
+                  <Tooltip
+                    title="New Project"
+                    position="left"
+                    size='big'
+                    theme='transparent'
+                    arrow
+                  >
+                    <Icon name='add square' link className="option-item" style={{ color: '#212121' }} />
+                  </Tooltip>
+                </Link>
+              </div> */}
+            </div>
+
+            <div className="main-container">
+              {cards}
+            </div>
+          </div>
+        }
       </div>
     );
   }
 }
 
-export default Content;
+function mapStateToProps(state) {
+  return {
+    error: state.project.error,
+    fetching: state.project.fetching,
+    projects: state.project.projects
+  }
+}
+
+export default connect(mapStateToProps, { getAllProjects })(ProjectPage)
