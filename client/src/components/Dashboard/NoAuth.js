@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DashboardCard from './DashboardCard'
+import DashboardCard from './DashboardCardDemo'
 
 class NoAuth extends Component {
   render() {

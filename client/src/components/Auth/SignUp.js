@@ -44,7 +44,7 @@ class SignUpPage extends Component {
                     }}>
                         <img src={LoadIcon} alt="" />
                         <br />
-                        Creating the project......
+                        Hey oh! Hang on a sec...
                         </div>
                     :
                     <div className="signup-container">
