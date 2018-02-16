@@ -13,6 +13,19 @@ import NotFound from './NotFound.js'
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Route, withRouter, Switch, Redirect } from "react-router-dom";
 import Auth from '../tools/Auth';
+// const jwt = Auth.getToken();
+
+// const isLoggedIn = () => {
+//   if (jwt != null) {
+//       if ((jwt.exp * 1000) >= Date.now()) {
+//           return true;
+//       } else {
+//           localStorage.removeItem('jwt');
+//           localStorage.removeItem('auth_token');
+//       }
+//   }
+//   return false;
+// }
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route

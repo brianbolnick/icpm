@@ -12,6 +12,7 @@ class Auth {
   }
 
   static isUserAuthenticated() {
+    console.log("token", localStorage.getItem('token'));
     return localStorage.getItem('token') !== null;
   }
 
@@ -26,7 +27,7 @@ class Auth {
   }
 
   static getUser() {
-    return JSON.parse(localStorage.getItem('user'));
+    return localStorage.getItem('user');
   }
 
 }

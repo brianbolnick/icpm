@@ -4,8 +4,10 @@ import 'react-tippy/dist/tippy.css';
 import { connect } from 'react-redux';
 import { getAllProjects } from '../../actions/project_index';
 import LoadIcon from '../../img/beyonce-load.gif'
+import Auth from '../../tools/Auth';
 
-const user_id = JSON.parse(localStorage.getItem('user')).id;
+const user = Auth.getUser();
+const user_id = user !== null ? JSON.parse(user).id : null
 
 class ProjectPage extends Component {
   componentDidMount() {

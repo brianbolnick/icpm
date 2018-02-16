@@ -4,11 +4,14 @@ import NewProjectForm from './NewProjectForm'
 import { connect } from 'react-redux';
 import { createProject } from '../../actions/project_index';
 import LoadIcon from '../../img/panda-load.gif'
+import Auth from '../../tools/Auth';
+
+const user = Auth.getUser();
 
 class ProjectPage extends Component {
 
     handleFormSubmit = values => {
-        const user_id = JSON.parse(localStorage.getItem('user')).id;
+        const user_id = user !== null ? JSON.parse(user).id : null
         values = { ...values, user_id: user_id }
         this.props.createProject(values);
     }
