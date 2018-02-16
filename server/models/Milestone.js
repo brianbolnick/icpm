@@ -7,7 +7,7 @@ var Schema = mongoose.Schema;
 var MilestonesSchema = new Schema({
     project_id: { type: Schema.Types.ObjectId, ref: 'Project' },
     type: String,
-    tasks: {},
+    tasks: [{ type: Schema.Types.ObjectId, ref: 'Task' }],
     end_date: Date
 });
 //export our module to use in server.js

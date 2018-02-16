@@ -9,7 +9,7 @@ class HomePage extends Component {
   render() {
     return (
       <Layout bg="home-layout">
-        <div className="home-page" style={{ minHeight: '100%', width: '75%' }}>
+        <div className="home-page" style={{ minHeight: '100vh', width: '75%' }}>
           {Auth.isUserAuthenticated()
             ?
             <HomeContent />

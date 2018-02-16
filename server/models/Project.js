@@ -16,6 +16,7 @@ var ProjectsSchema = new Schema({
     auth_type: String,
     legacy_lms: String,
     support_package: String,
+    instance_url: String,
     milestones: {
         sis: { type: Schema.Types.ObjectId, ref: 'Task' },
         authentication: { type: Schema.Types.ObjectId, ref: 'Task' },

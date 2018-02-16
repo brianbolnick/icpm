@@ -27,6 +27,9 @@ const validate = values => {
     if (!values.support) {
         errors.support = 'Please select a Support Tier'
     }
+    if (!values.instance_url) {
+        errors.instance_url = 'Please add the Canvas URL'
+    }
     return errors
 }
 
@@ -103,18 +106,20 @@ const NewProjectForm = props => {
                         label="CSM Name"
                     />
                 </div>
-                <Field
-                    name="sis"
-                    type="text"
-                    component={renderField}
-                    label="SIS"
-                />
-                <Field
-                    name="legacy_lms"
-                    type="text"
-                    component={renderField}
-                    label="Legacy LMS"
-                />
+                <div className="form-row">
+                    <Field
+                        name="sis"
+                        type="text"
+                        component={renderRowField}
+                        label="SIS"
+                    />
+                    <Field
+                        name="legacy_lms"
+                        type="text"
+                        component={renderRowField}
+                        label="Legacy LMS"
+                    />
+                </div>
                 <div className="form-row">
                     <div className="form-group row-item-3">
                         <label htmlFor="auth_type">Authentication</label>
@@ -158,6 +163,13 @@ const NewProjectForm = props => {
                         <option value="other">Other</option>
                     </Field>
                 </div>
+
+                <Field
+                    name="instance_url"
+                    type="text"
+                    component={renderField}
+                    label="Instance URL"
+                />
 
                 <div>
                     <button type="submit" className="form-button" disabled={submitting}>

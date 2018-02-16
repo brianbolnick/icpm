@@ -328,6 +328,9 @@ hr.card-divider {
   color: #212121d9;
   letter-spacing: 1px;
   line-height: 35px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-subtitle {
@@ -578,7 +581,7 @@ select:focus {
 
 .form-group.row-item {
   width: 43%;
-  margin: 0 15px;
+  margin: 10px 15px;
 }
 
 button.form-button {
@@ -668,7 +671,6 @@ i.link.icon.option-item {
   text-align: center;
 }
 
-
 .new-form {
   display: -ms-flexbox;
   display: flex;
@@ -676,6 +678,132 @@ i.link.icon.option-item {
   justify-content: center;
   margin: 30px;
 }
+
+.task-container {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.project-task-card {
+  width: 30%;
+  text-align: center;
+  margin: 10px;
+  background: #fff;
+  border-radius: 4px;
+  padding: 40px;
+  box-shadow: 3px 3px 10px 0px #21212126;
+}
+
+.ui.checkbox.task-open input.hidden+label {
+  color: #545454;
+  font-weight: 100;
+}
+
+.ui.checkbox.task-complete input.hidden+label {
+  color: #d0d0d0;
+  font-weight: 100;
+  text-decoration: line-through;
+}
+
+.ui.checkbox.task-removed input.hidden+label {
+  color: orange;
+}
+
+.tasks-container {
+  display: flex;
+  flex-flow: column;
+  text-align: left;
+}
+
+.task-title {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: #212121b3;
+}
+
+.progress-container {
+  padding: 5% 35%;
+}
+
+.CircularProgressbar.sis-card-progress .CircularProgressbar-path {
+  stroke: #F06559;
+}
+
+.CircularProgressbar.sis-card-progress .CircularProgressbar-text {
+  fill: #F06559;
+}
+
+.CircularProgressbar.branding-card-progress .CircularProgressbar-path {
+  stroke: #BA4C99;
+}
+
+.CircularProgressbar.branding-card-progress .CircularProgressbar-text {
+  fill: #BA4C99;
+}
+
+.CircularProgressbar.auth-card-progress .CircularProgressbar-path {
+  stroke: #21B2DE;
+}
+
+.CircularProgressbar.auth-card-progress .CircularProgressbar-text {
+  fill: #21B2DE;
+}
+
+.CircularProgressbar.migration-card-progress .CircularProgressbar-path {
+  stroke: #00C989;
+}
+
+.CircularProgressbar.migration-card-progress .CircularProgressbar-text {
+  fill: #00C989;
+}
+
+.CircularProgressbar.other-card-progress .CircularProgressbar-path {
+  stroke: #FFC763;
+}
+
+.CircularProgressbar.other-card-progress .CircularProgressbar-text {
+  fill: #FFC763;
+}
+
+.task-subtitle {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #afafaf;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.project-task-card.other {
+  width: 63%;
+}
+
+.CircularProgressbar.other {
+  width: 60%;
+}
+
+.progress-container.other {
+  padding: 0;
+}
+
+.task-card-content.other {
+  height: 100%;
+}
+
+.other-task-container {
+  display: flex;
+  flex-flow: row wrap;
+  height: 90%;
+  align-items: center;
+}
+
+container {
+  display: flex;
+  flex-flow: row;
+  margin-top: 30px;
+}
+
 /* Responsive Branding */
 
 /* Mobile */
@@ -723,7 +851,6 @@ i.link.icon.option-item {
   .form-group.row-item-3 {
     width: 100%;
   }
-
   .project-form-container {
     background: #fff;
     -webkit-box-shadow: 2px 2px 10px 0px #2121217a;
@@ -735,14 +862,28 @@ i.link.icon.option-item {
     position: relative;
     top: 30px;
   }
-
   .new-form {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: center;
     justify-content: center;
     margin: 30px 0px;
-}
+  }
+  .project-task-card {
+    width: 90%;
+  }
+  .progress-container {
+    padding: 5% 25%;
+  }
+  .project-task-card.other {
+    width: 90%;
+  }
+  .other-task-container {
+    margin: 10px;
+  }
+  .progress-container.other {
+    margin: 10px;
+  }
 }
 
 /* Tablet */
@@ -780,6 +921,12 @@ i.link.icon.option-item {
   /* .form-group.row-item-3 {
     width: 100%;
   } */
+  .progress-container {
+    padding: 5% 25%;
+  }
+  .project-task-card {
+    width: 40%;
+  }
 }
 
 @media only screen and (min-width: 767px) {

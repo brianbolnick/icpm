@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import Layout from '../Layout'
 import DashboardCard from '../Dashboard/DashboardCard'
-import { Icon } from 'semantic-ui-react'
-import { Link } from "react-router-dom";
 import 'react-tippy/dist/tippy.css';
-import { Tooltip } from 'react-tippy';
 import { connect } from 'react-redux';
 import { getAllProjects } from '../../actions/project_index';
 import LoadIcon from '../../img/beyonce-load.gif'

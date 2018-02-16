@@ -6,8 +6,8 @@ class NoAuth extends Component {
 
     const data = {
       id: "1",
-      schoolName: "University of Utah",
-      package: "Premium",
+      name: "University of Utah",
+      imp_package: "Premium",
       csm: "Taylor Austin",
       date: "May 7, 2018"
     }

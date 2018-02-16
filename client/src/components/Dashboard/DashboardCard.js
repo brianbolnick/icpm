@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import moment from 'moment';
 
 
 class Card extends Component {
     render() {
         const { data } = this.props;
+        console.log(data)
         return (
             <div className="dashboard-card" >
                 <Link to={`/projects/${data._id}`} >
@@ -21,7 +23,7 @@ class Card extends Component {
                             </div>
                             <div className="date-info">
                                 <span>Target Close Date:</span>
-                                <div className="csm-name">{data.end_date}</div>
+                                <div className="csm-name">{moment(data.end_date).format('MM-DD-YY')}</div>
                             </div>
                             <div className="card-stats">
                                 <div className="card-sis">
@@ -29,7 +31,7 @@ class Card extends Component {
                                     <div className="progress-bar">
                                         <div className="progress-sis" style={{ width: '80%' }}>
                                             80%
-                                    </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="card-branding">
@@ -37,7 +39,7 @@ class Card extends Component {
                                     <div className="progress-bar">
                                         <div className="progress-branding" style={{ width: '100%' }}>
                                             100%
-                                    </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="card-auth">

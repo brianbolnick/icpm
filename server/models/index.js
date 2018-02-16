@@ -17,4 +17,5 @@ module.exports.connect = (uri) => {
     require('./Project');
     require('./Milestone');
     require('./Contact');
+    require('./Task');
 };
