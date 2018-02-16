@@ -25,6 +25,7 @@ app.use(bodyParser.json());
 // CORS stuff
 var allowedOrigins = [
     'http://localhost:3000',
+    'icpm.herokuapp.com',
     'https://icpm.herokuapp.com'
 ];
 app.use(cors({
