@@ -5,7 +5,8 @@ import Logo from '../img/impl-logo-wt.png'
 import Auth from '../tools/Auth';
 import { TEAM_OPTIONS } from '../data/common_constants'
 
-const user = Auth.getUser();
+const u = Auth.getUser();
+const user = JSON.parse(u);
 
 class SidebarContent extends Component {
     handleLogout = () => {
