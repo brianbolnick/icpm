@@ -47,41 +47,29 @@ export default function (state = INITIAL_STATE, action) {
         case GET_PROJECT_END:
             return { ...state, fetching: false, projectDetails: action.payload };
         case FETCH_PROJECTS_START:
-            console.log("in reducer start")
             return { ...state, fetching: true };
         case FETCH_PROJECTS_END:
-            console.log("in reducer end")
             return { ...state, fetching: false, projects: action.payload };
         case FETCH_SIS_START:
-            console.log("in reducer start")
             return { ...state, fetchingSIS: true };
         case FETCH_SIS_END:
-            console.log("in reducer end")
             return { ...state, fetchingSIS: false, sis: action.payload };
         case FETCH_AUTH_START:
-            console.log("in reducer start")
             return { ...state, fetchingAuth: true };
         case FETCH_AUTH_END:
-            console.log("in reducer end")
             return { ...state, fetchingAuth: false, auth: action.payload };
         case FETCH_BRANDING_START:
-            console.log("in reducer start")
             return { ...state, fetchingBranding: true };
         case FETCH_BRANDING_END:
-            console.log("in reducer end")
             return { ...state, fetchingBranding: false, branding: action.payload };
         case FETCH_MIGRATION_START:
-            console.log("in reducer start")
             return { ...state, fetchingMigration: true };
         case FETCH_MIGRATION_END:
-            console.log("in reducer end")
             return { ...state, fetchingMigration: false, migration: action.payload };
         case FETCH_OTHERS_START:
-            console.log("in reducer start")
             return { ...state, fetchingOther: true };
         case FETCH_OTHERS_END:
-            console.log("in reducer end")
-            return { ...state, fetchingOther: false, other: action.payload };
+             return { ...state, fetchingOther: false, other: action.payload };
         case SET_PROJECT_ERRORS:
             console.log("setting error in reducer", action.payload)
             return { ...state, error: action.payload, fetching: false }

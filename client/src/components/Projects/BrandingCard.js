@@ -15,7 +15,6 @@ class BrandingCard extends Component {
 
     render() {
         const { branding } = this.props;
-        console.log(branding);
         var tasks;
         var total = 0;
         var complete = 0;

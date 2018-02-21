@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import Layout from '../Layout'
 import { connect } from 'react-redux';
 import { getProjectDetails, resetErrors, clearState } from '../../actions/project_index';
-import SisCard from './SisCard';
-import AuthCard from './AuthCard';
-import BrandingCard from './BrandingCard';
-import MigrationCard from './MigrationCard';
-import OtherCard from './OtherCard';
 import moment from 'moment';
+import MilestoneView from './MilestoneView';
+import ContactView from './ContactsView';
+import NotesView from './NotesView';
 
 class ProjectPage extends Component {
     componentDidMount() {
@@ -34,9 +32,22 @@ class ProjectPage extends Component {
 
 
 class ProjectContent extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: 'tasks'
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({ value: event.target.value });
+    }
 
     render() {
         const { data } = this.props;
+
         return (
             <div>
                 <div className="project-overview">
@@ -50,15 +61,17 @@ class ProjectContent extends Component {
                     </div>
                 </div>
 
+                <div className="view-select">                    
+                    <select id="project-view" value={this.state.value} onChange={this.handleChange}>
+                        <option value="tasks">Tasks</option>
+                        <option value="contacts">Contacts</option>
+                        <option value="notes">Notes</option>
+                    </select>
+                </div>
                 <div className="main-container">
-                    <div className="task-container">
-                        {/* {data && data.milestones ? <OtherCard data={data.milestones.other} /> : null}                        */}
-                        {data && data.milestones ? <SisCard data={data.milestones.sis} sisType={data.sis}/> : null}
-                        {data && data.milestones ? <BrandingCard data={data.milestones.branding}/> : null}
-                        {data && data.milestones ? <AuthCard data={data.milestones.authentication} authType={data.auth_type}/> : null}                       
-                        {data && data.milestones ? <MigrationCard data={data.milestones.migration} legacyLms={data.legacy_lms}/> : null}                       
-                        {data && data.milestones ? <OtherCard data={data.milestones.other} /> : null}                       
-                    </div>                    
+                    <MilestoneView data={data} active={this.state.value} />
+                    <ContactView data={data} active={this.state.value} />
+                    <NotesView data={data} active={this.state.value} />
                 </div>
             </div>
         );

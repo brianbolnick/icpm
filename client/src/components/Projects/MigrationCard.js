@@ -15,7 +15,6 @@ class MigrationCard extends Component {
 
     render() {
         const { migration } = this.props;
-        console.log(migration);
         var tasks;
         var total = 0;
         var complete = 0;

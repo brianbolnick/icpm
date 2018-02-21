@@ -7,12 +7,10 @@ class Auth {
     localStorage.setItem('token', token);
     const user_info = jwtDecode(token);
   
-    console.log(user_info);
     localStorage.setItem('user', JSON.stringify(user_info));
   }
 
   static isUserAuthenticated() {
-    console.log("token", localStorage.getItem('token'));
     return localStorage.getItem('token') !== null;
   }
 

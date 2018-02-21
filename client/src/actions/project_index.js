@@ -79,7 +79,6 @@ export const getProjectDetails = (data) => {
     return (dispatch, getState) => {
         dispatch({ type: GET_PROJECT_START })
         axios.get(`${API_URL}/api/projects/${data}`, config).then(response => {
-            console.log(response.data);
             if (response.data.error) {
                 console.log("found error getting project: ", response.data.error)
                 dispatch({
@@ -107,7 +106,6 @@ export const getAllProjects = (data) => {
     return (dispatch, getState) => {
         dispatch({ type: FETCH_PROJECTS_START })
         axios.get(`${API_URL}/api/users/${data}/projects`, config).then(response => {
-            console.log(response.data);
             if (response.data.error) {
                 console.log("found error getting project: ", response.data.error)
                 dispatch({
@@ -134,7 +132,6 @@ export const getSIS = (data) => {
     return (dispatch, getState) => {
         dispatch({ type: FETCH_SIS_START })
         axios.get(`${API_URL}/api/milestones/${data}`, config).then(response => {
-            console.log(response.data);
             if (response.data.error) {
                 console.log("found error getting sis data: ", response.data.error)
                 dispatch({
