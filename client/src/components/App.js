@@ -9,6 +9,7 @@ import ResourcesPage from './Resources/ResourcesPage.js'
 import SettingsPage from './Profile/SettingsPage.js'
 import LoginPage from './Auth/Login.js'
 import SignUpPage from './Auth/SignUp.js'
+import Email from './Projects/EmailTest.js'
 import NotFound from './NotFound.js'
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Route, withRouter, Switch, Redirect } from "react-router-dom";
@@ -68,6 +69,7 @@ class App extends Component {
               <PrivateRoute path="/tasks" exact component={TasksPage} />
               <PrivateRoute path="/resources" exact component={ResourcesPage} />
               <PrivateRoute path="/settings" exact component={SettingsPage} />
+              <PrivateRoute path="/email_test" exact component={Email} />
               <Route path="/signup" exact component={SignUpPage} />
               <Route path="/login" exact component={LoginPage} />
               <Route component={NotFound} />

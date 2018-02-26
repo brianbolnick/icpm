@@ -2,36 +2,51 @@ import React, { Component } from 'react';
 import ReactQuill from 'react-quill';
 import { Icon } from 'semantic-ui-react'
 import IconInstructureLine from 'instructure-icons/lib/Line/IconInstructureLine'
+import { Redirect } from 'react-router'
 import 'react-quill/dist/quill.snow.css';
 
 class NotesContent extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            sisHtml: '',
-            authHtml: '',
-            brandingHtml: '',
-            migrationHtml: '',
-            supportHtml: '',
-            trainingHtml: '',
+            redirect: false,
+            sisHtml: {
+                html: '',
+                status: '0'
+            },
+            authHtml: {
+                html: '',
+                status: '0'
+            },
+            brandingHtml: {
+                html: '',
+                status: '0'
+            },
+            migrationHtml: {
+                html: '',
+                status: '0'
+            },
+            supportHtml: {
+                html: '',
+                status: '0'
+            },
+            trainingHtml: {
+                html: '',
+                status: '0'
+            },
             otherHtml: '',
             newItem: '',
             newItemTeam: 2,
             newItemActive: false,
-            actionItems: [
-                {
-                    id: 1,
-                    description: "Compile project plan",
-                    team: 1,
-                },
-                {
-                    id: 2,
-                    description: "Send list of training users",
-                    team: 2,
-                }
-            ]
+            actionItems: []
         }
         this.handleSisChange = this.handleSisChange.bind(this)
+        this.handleSisStatusChange = this.handleSisStatusChange.bind(this)
+        this.handleAuthStatusChange = this.handleAuthStatusChange.bind(this)
+        this.handleBrandingStatusChange = this.handleBrandingStatusChange.bind(this)
+        this.handleMigrationStatusChange = this.handleMigrationStatusChange.bind(this)
+        this.handleSupportStatusChange = this.handleSupportStatusChange.bind(this)
+        this.handleTrainingStatusChange = this.handleTrainingStatusChange.bind(this)
         this.handleAuthChange = this.handleAuthChange.bind(this)
         this.handleBrandingChange = this.handleBrandingChange.bind(this)
         this.handleMigrationChange = this.handleMigrationChange.bind(this)
@@ -47,30 +62,47 @@ class NotesContent extends Component {
     }
 
     handleSisChange(html) {
-        this.setState({ sisHtml: html });
+        this.setState({ sisHtml: { ...this.state.sisHtml, html: html } });
+    }
+    handleSisStatusChange(event) {
+        this.setState({ sisHtml: { ...this.state.sisHtml, status: event.target.value } });
     }
     handleAuthChange(html) {
-        this.setState({ authHtml: html });
+        this.setState({ authHtml: { ...this.state.authHtml, html: html } });
+    }
+    handleAuthStatusChange(event) {
+        this.setState({ authHtml: { ...this.state.authHtml, status: event.target.value } });
     }
     handleBrandingChange(html) {
-        this.setState({ brandingHtml: html });
+        this.setState({ brandingHtml: { ...this.state.brandingHtml, html: html } });
+    }
+    handleBrandingStatusChange(event) {
+        this.setState({ brandingHtml: { ...this.state.brandingHtml, status: event.target.value } });
     }
     handleMigrationChange(html) {
-        this.setState({ migrationHtml: html });
+        this.setState({ migrationHtml: { ...this.state.migrationHtml, html: html } });
+    }
+    handleMigrationStatusChange(event) {
+        this.setState({ migrationHtml: { ...this.state.migrationHtml, status: event.target.value } });
     }
     handleSupportChange(html) {
-        this.setState({ supportHtml: html });
+        this.setState({ supportHtml: { ...this.state.supportHtml, html: html } });
+    }
+    handleSupportStatusChange(event) {
+        this.setState({ supportHtml: { ...this.state.supportHtml, status: event.target.value } });
     }
     handleTrainingChange(html) {
-        this.setState({ trainingHtml: html });
+        this.setState({ trainingHtml: { ...this.state.trainingHtml, html: html } });
+    }
+    handleTrainingStatusChange(event) {
+        this.setState({ trainingHtml: { ...this.state.trainingHtml, status: event.target.value } });
     }
     handleOtherChange(html) {
         this.setState({ otherHtml: html });
     }
 
     handleButtonClick() {
-        alert("This won't really do much right now, but check your console for all of the html!")
-        console.table(this.state)
+        this.setState({ redirect: true })
     }
 
     handleAddItemClick() {
@@ -96,7 +128,7 @@ class NotesContent extends Component {
                     team: parseInt(this.state.newItemTeam, 10)
                 }
             ],
-            newItem: ''            
+            newItem: ''
         })
 
         event.preventDefault();
@@ -132,121 +164,178 @@ class NotesContent extends Component {
                     </div>
                     <div className="action-item-settings">
                         <div className="action-item-icon"><Icon name='edit' link /></div>
-                        <div className="action-item-icon"><Icon id='remove-icon' name='remove' link onClick={this.handleDeleteClick(item.id)}/></div>
+                        <div className="action-item-icon"><Icon id='remove-icon' name='remove' link onClick={this.handleDeleteClick(item.id)} /></div>
                     </div>
                 </div>
             )
         })
 
         return (
-            <div className={active === "notes" ? "task-container" : "project-hidden"}>
-                <div className="notes-content">
-                    <div className="notes-secondary">
-                        <div className="action-items">
-                            <div className="notes-box-title">ACTION ITEMS</div>
-                            <div className="action-items-container">
-                                {actions}
-                            </div>
-                            {this.state.newItemActive ?
-                                <div className="action-item-form-container">
-                                    <form className="action-item-form" onSubmit={this.handleNewItemSubmit}>
-                                        <input type="text" value={this.state.newItem} onChange={this.handleNewItemChange} className="action-input"/>
-                                        <select value={this.state.newItemTeam} onChange={this.handleNewItemTeamChange} className="action-select">
-                                            <option value={2}>Client</option>
-                                            <option value={1}>INST</option>
-                                        </select>
-                                        <input type="submit" value="Submit" style={{ display: 'none' }} />
-                                    </form>
+            this.state.redirect ?
+                <Redirect to={{
+                    pathname: '/email_test',
+                    state: {
+                        referrer: this.state,
+                        projectData: this.props.data
+                    }
+                }} />
+                :
+                <div className={active === "notes" ? "task-container" : "project-hidden"}>
+                    <div className="notes-content">
+                        <div className="notes-secondary">
+                            <div className="action-items">
+                                <div className="notes-box-title">ACTION ITEMS</div>
+                                <div className="action-items-container">
+                                    {actions}
                                 </div>
-                                :
-                                null
-                            }
-                            <div className="new-action-item" id='new-action-item' onClick={this.handleAddItemClick}>
-                                <Icon name='plus' /> Add Action Item
+                                {this.state.newItemActive ?
+                                    <div className="action-item-form-container">
+                                        <form className="action-item-form" onSubmit={this.handleNewItemSubmit}>
+                                            <input type="text" value={this.state.newItem} onChange={this.handleNewItemChange} className="action-input" />
+                                            <select value={this.state.newItemTeam} onChange={this.handleNewItemTeamChange} className="action-select">
+                                                <option value={2}>CLIENT</option>
+                                                <option value={1}>INST</option>
+                                            </select>
+                                            <input type="submit" value="Submit" className="action-item-btn" />
+                                        </form>
+                                    </div>
+                                    :
+                                    null
+                                }
+                                <div className="new-action-item" id='new-action-item' onClick={this.handleAddItemClick}>
+                                    <Icon name='plus' /> Add Action Item
+                            </div>
+                            </div>
+                            <div className="notes-other">
+                                <div className="notes-box">
+                                    <div className="notes-box-title">OTHER FOLLOW-UPS</div>
+                                    <ReactQuill
+                                        theme="snow"
+                                        modules={modules}
+                                        formats={formats}
+                                        onChange={this.handleOtherChange}
+                                        value={this.state.otherHtml}
+                                        style={{ width: '100%' }}
+                                    />
+                                </div>
                             </div>
                         </div>
-                        <div className="notes-other">
+                        <hr className='vertical-divider hide-on-mobile' />
+                        <div className="notes-main">
                             <div className="notes-box">
-                                <div className="notes-box-title">OTHER FOLLOW-UPS</div>
+                                <div className="notes-box-title">
+                                    SIS
+                                    <select id="notes-status" value={this.state.sisHtml.status} onChange={this.handleSisStatusChange}>
+                                        <option value="0">Not Started</option>
+                                        <option value="1">In Progress</option>
+                                        <option value="2">On Hold</option>
+                                        <option value="3">Done</option>
+                                    </select>
+                                </div>
                                 <ReactQuill
                                     theme="snow"
                                     modules={modules}
                                     formats={formats}
-                                    onChange={this.handleOtherChange}
-                                    value={this.state.otherHtml}
-                                    style={{ width: '100%' }}
+                                    onChange={this.handleSisChange}
+                                    value={this.state.sisHtml.html}
+                                />
+                            </div>
+                            <div className="notes-box">
+                                <div className="notes-box-title">
+                                    AUTHENTICATION
+                                    <select id="notes-status" value={this.state.authHtml.status} onChange={this.handleAuthStatusChange}>
+                                        <option value="0">Not Started</option>
+                                        <option value="1">In Progress</option>
+                                        <option value="2">On Hold</option>
+                                        <option value="3">Done</option>
+                                    </select>    
+                                </div>
+                                <ReactQuill
+                                    theme="snow"
+                                    modules={modules}
+                                    formats={formats}
+                                    onChange={this.handleAuthChange}
+                                    value={this.state.authHtml.html}
+                                />
+                            </div>
+                            <div className="notes-box">
+                                <div className="notes-box-title">
+                                    BRANDING
+                                    <select id="notes-status" value={this.state.brandingHtml.status} onChange={this.handleBrandingStatusChange}>
+                                        <option value="0">Not Started</option>
+                                        <option value="1">In Progress</option>
+                                        <option value="2">On Hold</option>
+                                        <option value="3">Done</option>
+                                    </select>
+                                </div>
+                                <ReactQuill
+                                    theme="snow"
+                                    modules={modules}
+                                    formats={formats}
+                                    onChange={this.handleBrandingChange}
+                                    value={this.state.brandingHtml.html}
+                                />
+                            </div>
+                            <div className="notes-box">
+                                <div className="notes-box-title">
+                                    MIGRATION
+                                    <select id="notes-status" value={this.state.migrationHtml.status} onChange={this.handleMigrationStatusChange}>
+                                        <option value="0">Not Started</option>
+                                        <option value="1">In Progress</option>
+                                        <option value="2">On Hold</option>
+                                        <option value="3">Done</option>
+                                    </select>
+                                </div>
+                                <ReactQuill
+                                    theme="snow"
+                                    modules={modules}
+                                    formats={formats}
+                                    onChange={this.handleMigrationChange}
+                                    value={this.state.migrationHtml.html}
+                                />
+                            </div>
+                            <div className="notes-box">
+                                <div className="notes-box-title">
+                                    SUPPORT
+                                    <select id="notes-status" value={this.state.supportHtml.status} onChange={this.handleSupportStatusChange}>
+                                        <option value="0">Not Started</option>
+                                        <option value="1">In Progress</option>
+                                        <option value="2">On Hold</option>
+                                        <option value="3">Done</option>
+                                    </select>
+                                </div>
+                                <ReactQuill
+                                    theme="snow"
+                                    modules={modules}
+                                    formats={formats}
+                                    onChange={this.handleSupportChange}
+                                    value={this.state.supportHtml.html}
+                                />
+                            </div>
+                            <div className="notes-box">
+                                <div className="notes-box-title">
+                                    TRAINING
+                                    <select id="notes-status" value={this.state.trainingHtml.status} onChange={this.handleTrainingStatusChange}>
+                                        <option value="0">Not Started</option>
+                                        <option value="1">In Progress</option>
+                                        <option value="2">On Hold</option>
+                                        <option value="3">Done</option>
+                                    </select>
+                                </div>
+                                <ReactQuill
+                                    theme="snow"
+                                    modules={modules}
+                                    formats={formats}
+                                    onChange={this.handleTrainingChange}
+                                    value={this.state.trainingHtml.html}
                                 />
                             </div>
                         </div>
                     </div>
-                    <hr className='vertical-divider hide-on-mobile' />
-                    <div className="notes-main">
-                        <div className="notes-box">
-                            <div className="notes-box-title">SIS</div>
-                            <ReactQuill
-                                theme="snow"
-                                modules={modules}
-                                formats={formats}
-                                onChange={this.handleSisChange}
-                                value={this.state.sisHtml}
-                            />
-                        </div>
-                        <div className="notes-box">
-                            <div className="notes-box-title">AUTHENTICATION</div>
-                            <ReactQuill
-                                theme="snow"
-                                modules={modules}
-                                formats={formats}
-                                onChange={this.handleAuthChange}
-                                value={this.state.authHtml}
-                            />
-                        </div>
-                        <div className="notes-box">
-                            <div className="notes-box-title">BRANDING</div>
-                            <ReactQuill
-                                theme="snow"
-                                modules={modules}
-                                formats={formats}
-                                onChange={this.handleBrandingChange}
-                                value={this.state.brandingHtml}
-                            />
-                        </div>
-                        <div className="notes-box">
-                            <div className="notes-box-title">MIGRATION</div>
-                            <ReactQuill
-                                theme="snow"
-                                modules={modules}
-                                formats={formats}
-                                onChange={this.handleMigrationChange}
-                                value={this.state.migrationHtml}
-                            />
-                        </div>
-                        <div className="notes-box">
-                            <div className="notes-box-title">SUPPORT</div>
-                            <ReactQuill
-                                theme="snow"
-                                modules={modules}
-                                formats={formats}
-                                onChange={this.handleSupportChange}
-                                value={this.state.supportHtml}
-                            />
-                        </div>
-                        <div className="notes-box">
-                            <div className="notes-box-title">TRAINING</div>
-                            <ReactQuill
-                                theme="snow"
-                                modules={modules}
-                                formats={formats}
-                                onChange={this.handleTrainingChange}
-                                value={this.state.trainingHtml}
-                            />
-                        </div>
+                    <div style={{ width: '100%', textAlign: 'right', marginRight: '35px' }}>
+                        <button id='notes-button' className="form-button" onClick={this.handleButtonClick}>Create Email</button>
                     </div>
                 </div>
-                <div style={{ width: '100%', textAlign: 'right', marginRight: '35px' }}>
-                    <button id='notes-button' className="form-button" onClick={this.handleButtonClick}>Create Email</button>
-                </div>
-            </div>
         );
     }
 }

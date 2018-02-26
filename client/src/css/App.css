@@ -826,7 +826,7 @@ hr.vertical-divider {
   flex-flow: column;
   justify-content: space-evenly;
   align-items: center;
-  width: 40%;
+  width: 50%;
 }
 
 .notes-main {
@@ -852,14 +852,31 @@ hr.vertical-divider {
 }
 
 .ql-toolbar.ql-snow {
+  border: 1px solid #e2e2e2;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  padding: 8px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   padding: 2px;
   background: #fff;
 }
 
+/* .ql-toolbar.ql-snow {
+  padding: 2px;
+  background: #fff;
+} */
+
 .quill {
   width: 95%;
   margin: 10px 0;
-  box-shadow: 1px 3px 6px 0px #2121212e;
+  /* box-shadow: 1px 3px 6px 0px #2121212e; */
+}
+
+.ql-toolbar.ql-snow+.ql-container.ql-snow {
+  border-top: 0px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .notes-box-title {
@@ -867,7 +884,16 @@ hr.vertical-divider {
   letter-spacing: 1px;
   font-weight: 800;
   font-size: 1.2rem;
+  display: flex;
   color: #212121b3;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 95%;
+}
+
+select#notes-status {
+  font-size: 1rem;
+  color: #FF7769;
 }
 
 .notes-other {
@@ -928,6 +954,12 @@ form.action-item-form {
   display: inline-flex;
   width: 100%;
   justify-content: space-between;
+  flex-flow: row wrap;
+}
+
+input.action-item-btn:hover {
+  background: #d7d7d7;
+  border: #ff6c62 solid 1px;
 }
 
 input.action-input {
@@ -959,13 +991,85 @@ select.action-select {
   border-radius: 0px;
   height: 30px;
   font-size: 1rem;
-  width: 25%;
+  /* width: 25%; */
 }
 
 select.action-select:focus {
   border-bottom: solid 1px #ff6c62;
   outline: none;
   transition: 0.4s;
+}
+
+input.action-item-btn {
+  margin-top: 10px;
+  width: 100%;
+  background: none;
+  border: solid 1px #ff6c62;
+  color: #ff6c62;
+  font-weight: 100;
+}
+
+.email-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.email-main-header {
+  display: flex;
+  background: #73C6E3;
+  height: 60px;
+  justify-content: space-between;
+  padding: 15px;
+  align-items: center;
+  border-radius: 2px;
+  margin: 10px 0px;
+}
+
+.main-header-text {
+  color: white;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.email-sub-header {
+  display: -ms-flexbox;
+  display: flex;
+  background: #C74B33;
+  height: 50px;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 15px;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 2px;
+  margin: 10px 0px;
+}
+
+.main-sub-text {
+  color: white;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+table.email-table {
+  width: 90%;
+  padding: 5px;
+  margin-left: auto;
+  border-collapse: collapse;
+  margin-right: auto;
+}
+
+table,
+td,
+th {
+  border: 1px solid #212121;
+}
+
+td {
+  padding: 5px;
+  vertical-align: baseline;
 }
 
 /* Responsive Branding */

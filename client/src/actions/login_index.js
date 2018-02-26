@@ -34,9 +34,6 @@ export const handleLogin = (values) => {
                 payload: `There was an error logging in: ${error}`
             })
         })
-
-
-
     }
 }
 
