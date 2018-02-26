@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import CanvasLogo from '../../img/canvas-logo-small.png'
 import SmallLogo from '../../img/canvas-logo-extra.png'
 import moment from 'moment'
-import clipboard from 'clipboard-polyfill'
 
 class EmailContainer extends Component {
     componentDidMount() {
