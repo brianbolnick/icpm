@@ -104,7 +104,7 @@ class EmailTemplate extends Component {
                 <br />
                 <div className="project-info">
                     <div className="project-info-date">Target End Date:<b> {moment(project.end_date).format('MM/DD/YYYY')}</b></div>
-                    <div className="project-info-drive">Shared Project Folder: <a href="https://google.com"><b style={{ textDecoration: 'underline', color: 'blue' }}>CLICK HERE</b></a></div>
+                    <div className="project-info-drive">Shared Project Folder: <a href={project.drive_url}><b style={{ textDecoration: 'underline', color: 'blue' }}>CLICK HERE</b></a></div>
                 </div>
 
                 <div className="email-sub-header" style={{ background: '#73C6E3' }}>

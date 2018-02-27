@@ -178,6 +178,7 @@ router.route('/projects')
         project.sis = req.body.sis;
         project.auth_type = req.body.auth_type;
         project.instance_url = req.body.instance_url;
+        project.drive_url = req.body.drive_url;
         project.legacy_lms = req.body.legacy_lms;
         project.support_package = req.body.support_package;
         project.user_id = req.body.user_id;

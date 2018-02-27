@@ -30,6 +30,9 @@ const validate = values => {
     if (!values.instance_url) {
         errors.instance_url = 'Please add the Canvas URL'
     }
+    if (!values.drive_url) {
+        errors.drive_url = 'Please add the Google Drive URL'
+    }
     return errors
 }
 
@@ -169,6 +172,13 @@ const NewProjectForm = props => {
                     type="text"
                     component={renderField}
                     label="Instance URL"
+                />
+
+                <Field
+                    name="drive_url"
+                    type="text"
+                    component={renderField}
+                    label="Google Drive URL (Make sure it's public!)"
                 />
 
                 <div>
