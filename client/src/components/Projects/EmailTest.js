@@ -6,12 +6,31 @@ import moment from 'moment'
 class EmailContainer extends Component {
     componentDidMount() {
 
-
     }
 
+    // handleClick(email) {
+    //     var data = email.getAttribute("data-email-content");
+    //     alert("The " + email.innerHTML + " is a " + data + ".");
+    // }
+
+    showDetails(animal) {
+        var animalType = animal.getAttribute("data-animal-type");
+        alert("The " + animal.innerHTML + " is a " + animalType + ".");
+    }
     render() {
         return (
             <div className="email-container" id="email-template">
+                {/* <div
+                    data-email-content={<EmailTemplate data={this.props.location.state.referrer} project={this.props.location.state.projectData} />}
+                    onClick={this.handleClick(this)}
+                    id="email-content"
+                    style={{fontSize: '3rem'}}
+                > COPY </div> */}
+                <ul>
+                    <li onClick={this.showDetails(this)} id="owl" data-animal-type="bird">Owl</li>
+                    <li onClick={this.showDetails(this)} id="salmon" data-animal-type="fish">Salmon</li>
+                    <li onClick={this.showDetails(this)} id="tarantula" data-animal-type="spider">Tarantula</li>
+                </ul>
                 <EmailTemplate data={this.props.location.state.referrer} project={this.props.location.state.projectData} />
             </div>
         )

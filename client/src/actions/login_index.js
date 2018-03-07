@@ -19,7 +19,7 @@ export const handleLogin = (values) => {
                 })
                 setTimeout(() => {
                     dispatch(push('/dashboard'))                    
-                }, 2000);
+                }, 1500);
             }
             else {
                 dispatch({

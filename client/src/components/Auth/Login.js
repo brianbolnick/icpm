@@ -29,7 +29,7 @@ class LoginPage extends Component {
                     }}>
                         <img src={LoadIcon} alt="" />
                         <br />
-                        Creating the project......
+                        Welcome Back! Getting your things......
                         </div>
                     :
                     <div className="signup-container">

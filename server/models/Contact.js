@@ -9,6 +9,7 @@ var ContactsSchema = new Schema({
     first_name: String,
     last_name: String,
     email: String,
+    phone: String,
     role: String
 });
 //export our module to use in server.js

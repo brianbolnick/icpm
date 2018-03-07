@@ -22,10 +22,18 @@ class SidebarContent extends Component {
                     {Auth.isUserAuthenticated() ?
                         <div className="sidebar-user-details">
                             <div className="sidebar-user-name">
-                                {user.first_name} {user.last_name}
+                                {user && user.first_name != null ?
+                                    `${user.first_name} ${user.last_name}`
+                                    :
+                                    "Welcome!"
+                                }
                             </div>
                             <div className="sidebar-user-role">
-                                {TEAM_OPTIONS[user.team]}
+                                {user && user.team != null ?
+                                    `${TEAM_OPTIONS[user.team]}`
+                                    :
+                                    "If there's nothing here, please refresh :)"
+                                }
                             </div>
                         </div>
                         :

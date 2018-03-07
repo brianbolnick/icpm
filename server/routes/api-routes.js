@@ -22,8 +22,8 @@ createTask = (milestone, name) => {
         console.log(`created new ${name} task with id ${task._id}`);
     });
     return task._id.toString();
-
 }
+
 
 router.get('/', function (req, res) {
     res.json({ message: 'API Initialized!' });
@@ -34,6 +34,7 @@ router.get('/test', function (req, res) {
         message: "You're authorized to see this secret message."
     });
 });
+
 
 
 // USER ROUTES
@@ -202,6 +203,44 @@ router.get('/projects/:project_id', function (req, res, next) {
         if (err) { res.send(err); }
         res.json(project);
     });
+})
+
+//CONTACT ROUTES
+router.get('/projects/:project_id/contacts', function (req, res, next) {
+    var project_id = req.params.project_id;
+    Project.findById(project_id)
+    .populate('contacts')
+    .then((err, contact) => {
+        if (err) { res.send(err); }
+        res.json(contact);
+    });
+})
+
+router.post('/projects/:project_id/contacts', function (req, res, next) {
+    var project_id = req.params.project_id;
+
+    const contact = new Contact();
+    const contact_id = contact._id;
+
+    contact.first_name = req.body.first_name;
+    contact.last_name = req.body.last_name;
+    contact.email = req.body.email;
+    contact.role = req.body.role;
+    contact.phone = req.body.phone;
+    contact.project_id = project_id;
+    contact.save(function (err) {
+        if (err)
+            res.send(err);
+    });
+    Project.findById((project_id), function (err, project) {
+        if (err) { res.send(err); }
+        project.contacts.push(contact_id);
+        project.save(function (err) {
+            if (err) {res.send(err); }
+        })
+    });
+
+    res.json({ contact: contact });
 })
 
 //milestone routes

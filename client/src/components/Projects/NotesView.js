@@ -204,7 +204,7 @@ class NotesContent extends Component {
                                 }
                                 <div className="new-action-item" id='new-action-item' onClick={this.handleAddItemClick}>
                                     <Icon name='plus' /> Add Action Item
-                            </div>
+                                </div>
                             </div>
                             <div className="notes-other">
                                 <div className="notes-box">
