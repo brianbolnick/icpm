@@ -24,7 +24,7 @@ export const createContact = (values) => {
             if (response.status === 200) {
                 dispatch({
                     type: END_CREATE_CONTACT,
-                    payload: response.data
+                    payload: response.data.contact
                 })
             }
             else {
@@ -54,6 +54,7 @@ export const getAllContacts = (data) => {
                     message: "There was an issue fetching contacts."
                 })
             } else {
+                console.log(response.data);
                 dispatch({
                     type: FETCH_CONTACTS_END,
                     payload: response.data.contacts

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Icon } from 'semantic-ui-react'
 import ContactForm from './NewContactForm';
+import ContactCard from './ContactCard';
 import { connect } from 'react-redux';
-import { createContact } from '../../actions/contact_index';
+import { createContact, getAllContacts } from '../../actions/contact_index';
 
 class ContactContent extends Component {
     constructor(props) {
@@ -13,6 +14,13 @@ class ContactContent extends Component {
         this.handleAddClick = this.handleAddClick.bind(this)
     }
 
+    componentDidMount() {
+        setTimeout(() => {
+            const project_id = this.props.data._id
+            this.props.getAllContacts(project_id);
+        }, 2000);
+    }
+
     handleAddClick() {
         this.setState({ newFormActive: true })
     }
@@ -21,12 +29,19 @@ class ContactContent extends Component {
         this.setState({ newFormActive: false })
         const project_id = this.props.data._id
         values = { ...values, project_id: project_id }
-        console.log(values);
-        // this.props.createProject(values);
+        this.props.createContact(values);
     }
+
+
 
     render() {
         const { data, active } = this.props;
+
+        const contactCards = this.props.contacts.contacts.map((contact) => {
+            return (
+                <ContactCard contact={contact} key={contact._id}/>
+            )
+        })
 
         return (
 
@@ -42,6 +57,9 @@ class ContactContent extends Component {
                     :
                     null
                 }
+                <div className="contact-cards-container">
+                    {contactCards}
+                </div>
             </div>
         );
     }
@@ -56,4 +74,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { createContact })(ContactContent)
+export default connect(mapStateToProps, { createContact, getAllContacts })(ContactContent)

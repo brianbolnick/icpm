@@ -218,7 +218,7 @@ router.get('/projects/:project_id/contacts', function (req, res, next) {
 
 router.post('/projects/:project_id/contacts', function (req, res, next) {
     var project_id = req.params.project_id;
-
+    req.body = JSON.parse(Object.keys(req.body)[0])
     const contact = new Contact();
     const contact_id = contact._id;
 

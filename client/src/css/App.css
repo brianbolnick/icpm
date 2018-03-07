@@ -1072,7 +1072,7 @@ td {
   vertical-align: baseline;
 }
 
-.contacts-container {  
+.contacts-container {
   display: flex;
   flex-flow: column;
   width: 100%;
@@ -1104,6 +1104,7 @@ div#new-contact {
   font-size: 0.9rem;
   transition: 0.1s;
 }
+
 div#new-contact:hover {
   cursor: pointer;
   /* box-shadow: 0px 1px 5px 2px #cecece; */
@@ -1111,6 +1112,81 @@ div#new-contact:hover {
   transform: scaleY(1.1);
 }
 
+.contact-cards-container {
+  width: 90%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.contact-card {
+  background: #fff;
+  height: 120px;
+  width: 45%;
+  margin: 10px;
+  padding: 15px;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-card-img {
+  background-color: #fff;
+  border: 0.05rem solid #fff;
+  box-shadow: 0 0.25rem 0.5rem 0 #b9c0cb;
+  font-size: 2.85rem;
+  border-radius: 2em;
+  color: #fff;
+  display: inline-block;
+  font-weight: bold;
+  height: 2em;
+  letter-spacing: 0.0313em;
+  line-height: 2em;
+  overflow: hidden;
+  text-align: center;
+  transform: translate(0, 0);
+  width: 2em;
+  background: url(https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png);
+  background-size: cover;
+}
+
+.contact-card-info {
+  width: 65%;
+  text-align: left;
+}
+
+.contact-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #212121d4;
+}
+
+.contact-role {
+  font-size: 0.9rem;
+  font-weight: 100;
+  letter-spacing: 0.05rem;
+}
+
+.contact-card-options {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+.contact-icon {
+  font-size: 1.3rem;
+}
+
+.contact-email {
+  font-weight: 100;
+}
+
+.contact-phone {
+  font-weight: 100;
+}
 
 /* Responsive Branding */
 
@@ -1201,6 +1277,15 @@ div#new-contact:hover {
   .notes-secondary {
     width: 100%;
   }
+  .contact-card {
+    width: 100%;
+  }
+  .contact-card-img {
+    display: none;
+  }
+  div#new-contact {
+    width: 85%;
+  }
 }
 
 /* Tablet */
@@ -1243,6 +1328,9 @@ div#new-contact:hover {
   }
   .project-task-card {
     width: 40%;
+  }
+  .contact-card-img {
+    display: none;
   }
 }
 
