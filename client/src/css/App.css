@@ -371,7 +371,8 @@ hr.card-divider {
 
 .progress-sis {
   height: 100%;
-  background: linear-gradient(to right, rgb(243, 124, 103), rgb(193, 30, 14));
+  /* background: linear-gradient(to right, rgb(243, 124, 103), rgb(193, 30, 14)); */
+  background: #F06559;
   border-radius: 0 8px 8px 0;
   text-align: center;
   color: #ffffff;
@@ -381,7 +382,8 @@ hr.card-divider {
 
 .progress-branding {
   height: 100%;
-  background: linear-gradient(to left, rgb(128, 0, 128), rgb(255, 173, 187));
+  /* background: linear-gradient(to left, rgb(128, 0, 128), rgb(255, 173, 187)); */
+  background: #BA4C99;
   border-radius: 0 8px 8px 0;
   text-align: center;
   color: #ffffff;
@@ -391,7 +393,8 @@ hr.card-divider {
 
 .progress-auth {
   height: 100%;
-  background: linear-gradient(to right, rgb(54, 209, 220), rgb(91, 134, 229));
+  /* background: linear-gradient(to right, rgb(54, 209, 220), rgb(91, 134, 229)); */
+  background: #21B2DE;
   border-radius: 0 8px 8px 0;
   text-align: center;
   color: #ffffff;
@@ -401,7 +404,8 @@ hr.card-divider {
 
 .progress-migration {
   height: 100%;
-  background: linear-gradient(to left, rgb(17, 153, 142), rgb(56, 239, 125));
+  /* background: linear-gradient(to left, rgb(17, 153, 142), rgb(56, 239, 125)); */
+  background: #00C989;
   border-radius: 0 8px 8px 0;
   text-align: center;
   color: #ffffff;
@@ -411,7 +415,8 @@ hr.card-divider {
 
 .progress-other {
   height: 100%;
-  background: linear-gradient(to right, rgb(255, 226, 89), rgb(255, 167, 81));
+  /* background: linear-gradient(to right, rgb(255, 226, 89), rgb(255, 167, 81)); */
+  background: #FFC763;
   border-radius: 0 8px 8px 0;
   text-align: center;
   color: #ffffff;
@@ -955,6 +960,7 @@ form.action-item-form {
   width: 100%;
   justify-content: space-between;
   flex-flow: row wrap;
+  margin-top: 10px;
 }
 
 input.action-item-btn:hover {
@@ -972,7 +978,7 @@ input.action-input {
   font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   letter-spacing: 1px;
   font-size: 1rem;
-  background: none;
+  background: #fff;
   width: 65%;
 }
 
@@ -985,13 +991,15 @@ input.action-input:focus {
 select.action-select {
   transition: 0.4s;
   letter-spacing: 1px;
-  color: #505050;
-  border: none;
-  border-bottom: solid 1px #2121211c;
+  color: #fff;
+  border-bottom: none;
   border-radius: 0px;
   height: 30px;
   font-size: 1rem;
   /* width: 25%; */
+  background-color: #ff6b61;
+  padding-left: 5px;
+  background-image: linear-gradient(45deg, transparent 50%, #fff 50%), linear-gradient(135deg, #fff 50%, transparent 50%);
 }
 
 select.action-select:focus {
